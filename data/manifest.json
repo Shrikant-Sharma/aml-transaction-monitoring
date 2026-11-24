@@ -1,0 +1,79 @@
+{
+ "dataset": "IBM Transactions for Anti Money Laundering (AML): HI-Small and LI-Small",
+ "paper": "Altman and others, Realistic Synthetic Financial Transactions for Anti-Money Laundering Models, NeurIPS 2023 (arXiv 2306.16424)",
+ "license": "Community Data License Agreement, Sharing, version 1.0 (CDLA-Sharing-1.0)",
+ "publisher_page": "https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml",
+ "synthetic": true,
+ "retrieved_utc": "2026-11-22",
+ "retrieved_from": "public copies on Hugging Face (the publisher's Kaggle page needs a sign-in)",
+ "how_the_copies_were_checked": [
+  "HI-Small_Trans.csv has the same SHA-256 in four separate public uploads.",
+  "Both portfolios match the counts the publisher states: HI-Small 5,078,345 transfers with 1 laundering in 981; LI-Small 6,924,049 transfers with 1 laundering in 1,942.",
+  "The two pattern files are plain text. A copy with Windows line endings has a different fingerprint and gives the same results; 01_get_data.py accepts it and says so."
+ ],
+ "counts": {
+  "HI-Small": {
+   "transfers": 5078345,
+   "accounts": 515088,
+   "laundering": 5177,
+   "one_in": 981,
+   "labeled_schemes": 370,
+   "laundering_in_labeled_schemes": 3209
+  },
+  "LI-Small": {
+   "transfers": 6924049,
+   "accounts": 705907,
+   "laundering": 3565,
+   "one_in": 1942,
+   "labeled_schemes": 117,
+   "laundering_in_labeled_schemes": 1023
+  }
+ },
+ "files": [
+  {
+   "name": "HI-Small_Trans.csv",
+   "bytes": 475664283,
+   "sha256": "b19d39f515523373f991b689c07e11e7b0b95c17a2c27a87d91584ae16c5b040",
+   "url": "https://huggingface.co/datasets/OsamaMIT/IBM-AML-HI-Small/resolve/main/HI-Small_Trans.csv"
+  },
+  {
+   "name": "HI-Small_accounts.csv",
+   "bytes": 34053187,
+   "sha256": "786808526e33cfc441212dd6fccda7edfc24172149bed59c6ef59b186836b014",
+   "url": "https://huggingface.co/datasets/OsamaMIT/IBM-AML-HI-Small/resolve/main/HI-Small_accounts.csv"
+  },
+  {
+   "name": "HI-Small_Patterns.txt",
+   "bytes": 323844,
+   "sha256": "2c546b5ce6009e73851f0139af053cf845f08bf92f3bc82fe1eb937dec2ef39b",
+   "url": "https://huggingface.co/datasets/OsamaMIT/IBM-AML-HI-Small/resolve/main/HI-Small_Patterns.txt"
+  },
+  {
+   "name": "LI-Small_Trans.csv",
+   "bytes": 650422357,
+   "sha256": "f7a9940339c78b5d1476071505b5867c0f5319640b9c4279d13f531bf965319d",
+   "inside": {
+    "archive": "LI-Small.zip",
+    "url": "https://huggingface.co/datasets/LordNR/AMLGraphX-IBM-AML/resolve/main/IBM-AML-LI-Small.zip"
+   }
+  },
+  {
+   "name": "LI-Small_accounts.csv",
+   "bytes": 47248016,
+   "sha256": "f51322afe81859fefc58b09cae6068dbdacce78cd9dfb9ef2b693e5190ec4718",
+   "inside": {
+    "archive": "LI-Small.zip",
+    "url": "https://huggingface.co/datasets/LordNR/AMLGraphX-IBM-AML/resolve/main/IBM-AML-LI-Small.zip"
+   }
+  },
+  {
+   "name": "LI-Small_Patterns.txt",
+   "bytes": 99156,
+   "sha256": "734c15b7ff4be1a04a3529bd1524b92c1e8b62289d3ce4881423596ee47a208f",
+   "inside": {
+    "archive": "LI-Small.zip",
+    "url": "https://huggingface.co/datasets/LordNR/AMLGraphX-IBM-AML/resolve/main/IBM-AML-LI-Small.zip"
+   }
+  }
+ ]
+}

@@ -1,0 +1,272 @@
+{
+ "alerts": 2787,
+ "laundering_among_them": 604,
+ "largest_gap_between_contributions_and_score": 4.291534423828125e-06,
+ "sample_of_all_test_transfers": 200000,
+ "features": [
+  {
+   "feature": "format",
+   "meaning": "payment format",
+   "group": "transfer",
+   "mean_size_on_alerts": 1.586021900177002,
+   "mean_size_on_all_test_transfers": 0.4667527377605438,
+   "among_the_top_3_reasons": 2703
+  },
+  {
+   "feature": "pair_count_3d",
+   "meaning": "transfers from this sender to this receiver in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 1.0660374164581299,
+   "mean_size_on_all_test_transfers": 0.1988380402326584,
+   "among_the_top_3_reasons": 2074
+  },
+  {
+   "feature": "amount_vs_peers",
+   "meaning": "size of the transfer against others in the same currency and payment format",
+   "group": "transfer",
+   "mean_size_on_alerts": 0.9662250876426697,
+   "mean_size_on_all_test_transfers": 0.3076682686805725,
+   "among_the_top_3_reasons": 1425
+  },
+  {
+   "feature": "pair_before_7d",
+   "meaning": "transfers from this sender to this receiver on the 7 days before",
+   "group": "added in version 2",
+   "mean_size_on_alerts": 0.8029928803443909,
+   "mean_size_on_all_test_transfers": 1.6470750570297241,
+   "among_the_top_3_reasons": 788
+  },
+  {
+   "feature": "s_currencies_3d",
+   "meaning": "currencies the sender used in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.5815222263336182,
+   "mean_size_on_all_test_transfers": 0.16064611077308655,
+   "among_the_top_3_reasons": 449
+  },
+  {
+   "feature": "r_recv_ach_1d",
+   "meaning": "ACH transfers the receiver got today",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.5052599906921387,
+   "mean_size_on_all_test_transfers": 0.13599327206611633,
+   "among_the_top_3_reasons": 59
+  },
+  {
+   "feature": "sender_owner_accounts",
+   "meaning": "number of accounts the sender's owner holds",
+   "group": "customer",
+   "mean_size_on_alerts": 0.43611079454421997,
+   "mean_size_on_all_test_transfers": 0.1121765747666359,
+   "among_the_top_3_reasons": 204
+  },
+  {
+   "feature": "r_recv_ach_3d",
+   "meaning": "ACH transfers the receiver got in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.32697537541389465,
+   "mean_size_on_all_test_transfers": 0.21828417479991913,
+   "among_the_top_3_reasons": 323
+  },
+  {
+   "feature": "cross_currency",
+   "meaning": "paid in one currency and received in another",
+   "group": "transfer",
+   "mean_size_on_alerts": 0.31897616386413574,
+   "mean_size_on_all_test_transfers": 0.030892619863152504,
+   "among_the_top_3_reasons": 200
+  },
+  {
+   "feature": "s_sent_3d",
+   "meaning": "transfers the sender made in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.23099032044410706,
+   "mean_size_on_all_test_transfers": 0.48352304100990295,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "r_recv_1d",
+   "meaning": "transfers the receiver got today",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.20965151488780975,
+   "mean_size_on_all_test_transfers": 0.08432469516992569,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "cross_border",
+   "meaning": "the two banks are in different countries",
+   "group": "customer",
+   "mean_size_on_alerts": 0.1833595186471939,
+   "mean_size_on_all_test_transfers": 0.13057099282741547,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "currency",
+   "meaning": "currency",
+   "group": "transfer",
+   "mean_size_on_alerts": 0.16776980459690094,
+   "mean_size_on_all_test_transfers": 0.12463219463825226,
+   "among_the_top_3_reasons": 1
+  },
+  {
+   "feature": "amount_log",
+   "meaning": "size of the transfer",
+   "group": "transfer",
+   "mean_size_on_alerts": 0.1622731238603592,
+   "mean_size_on_all_test_transfers": 0.08827391266822815,
+   "among_the_top_3_reasons": 1
+  },
+  {
+   "feature": "receiver_owner_accounts",
+   "meaning": "number of accounts the receiver's owner holds",
+   "group": "customer",
+   "mean_size_on_alerts": 0.15540170669555664,
+   "mean_size_on_all_test_transfers": 0.08663414418697357,
+   "among_the_top_3_reasons": 6
+  },
+  {
+   "feature": "s_sent_ach_3d",
+   "meaning": "ACH transfers the sender made in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.13005127012729645,
+   "mean_size_on_all_test_transfers": 0.09475573152303696,
+   "among_the_top_3_reasons": 22
+  },
+  {
+   "feature": "s_recv_ach_3d",
+   "meaning": "ACH transfers the sender received in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.12156237661838531,
+   "mean_size_on_all_test_transfers": 0.0887361615896225,
+   "among_the_top_3_reasons": 51
+  },
+  {
+   "feature": "s_sent_1d",
+   "meaning": "transfers the sender made today",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.11904540657997131,
+   "mean_size_on_all_test_transfers": 0.6977013349533081,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "r_recv_3d",
+   "meaning": "transfers the receiver got in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.11241596937179565,
+   "mean_size_on_all_test_transfers": 0.0963311493396759,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "r_sent_ach_3d",
+   "meaning": "ACH transfers the receiver made in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.10647786408662796,
+   "mean_size_on_all_test_transfers": 0.09671846032142639,
+   "among_the_top_3_reasons": 52
+  },
+  {
+   "feature": "s_recv_3d",
+   "meaning": "transfers the sender received in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.0878099873661995,
+   "mean_size_on_all_test_transfers": 0.06476792693138123,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "hour",
+   "meaning": "time of day",
+   "group": "transfer",
+   "mean_size_on_alerts": 0.08569507300853729,
+   "mean_size_on_all_test_transfers": 0.08255821466445923,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "sender_type",
+   "meaning": "sender's customer type",
+   "group": "customer",
+   "mean_size_on_alerts": 0.08365952223539352,
+   "mean_size_on_all_test_transfers": 0.04343268647789955,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "s_sent_ach_1d",
+   "meaning": "ACH transfers the sender made today",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.06274384260177612,
+   "mean_size_on_all_test_transfers": 0.039330653846263885,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "r_sent_1d",
+   "meaning": "transfers the receiver made today",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.05086696147918701,
+   "mean_size_on_all_test_transfers": 0.04813859239220619,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "r_sent_3d",
+   "meaning": "transfers the receiver made in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.04428773373365402,
+   "mean_size_on_all_test_transfers": 0.050066445022821426,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "r_currencies_3d",
+   "meaning": "currencies the receiver used in 3 days",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.03404035046696663,
+   "mean_size_on_all_test_transfers": 0.015413138084113598,
+   "among_the_top_3_reasons": 3
+  },
+  {
+   "feature": "s_recv_1d",
+   "meaning": "transfers the sender received today",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.030572224408388138,
+   "mean_size_on_all_test_transfers": 0.05462434142827988,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "to_self",
+   "meaning": "sender and receiver are the same account",
+   "group": "transfer",
+   "mean_size_on_alerts": 0.023441731929779053,
+   "mean_size_on_all_test_transfers": 0.04307621717453003,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "receiver_type",
+   "meaning": "receiver's customer type",
+   "group": "customer",
+   "mean_size_on_alerts": 0.020200135186314583,
+   "mean_size_on_all_test_transfers": 0.025294195860624313,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "pair_before_3d",
+   "meaning": "transfers from this sender to this receiver on the 2 days before",
+   "group": "behavior",
+   "mean_size_on_alerts": 0.006894673220813274,
+   "mean_size_on_all_test_transfers": 0.018177466467022896,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "same_owner",
+   "meaning": "both accounts have the same owner",
+   "group": "customer",
+   "mean_size_on_alerts": 0.002644980326294899,
+   "mean_size_on_all_test_transfers": 0.003305518999695778,
+   "among_the_top_3_reasons": 0
+  },
+  {
+   "feature": "same_bank",
+   "meaning": "both accounts are at the same bank",
+   "group": "transfer",
+   "mean_size_on_alerts": 0.001323192031122744,
+   "mean_size_on_all_test_transfers": 0.0017312485724687576,
+   "among_the_top_3_reasons": 0
+  }
+ ]
+}

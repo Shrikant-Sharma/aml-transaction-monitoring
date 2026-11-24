@@ -1,0 +1,1280 @@
+{
+ "days": {
+  "warmup": [
+   0,
+   1
+  ],
+  "train": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "tune": [
+   6,
+   7
+  ],
+  "test": [
+   8,
+   9
+  ]
+ },
+ "rows": {
+  "warmup": {
+   "transfers": 1869370,
+   "laundering": 730,
+   "one_in": 2561
+  },
+  "train": {
+   "transfers": 1379551,
+   "laundering": 1800,
+   "one_in": 766
+  },
+  "tune": {
+   "transfers": 965524,
+   "laundering": 1036,
+   "one_in": 932
+  },
+  "test": {
+   "transfers": 862792,
+   "laundering": 956,
+   "one_in": 903
+  },
+  "after_day_9": {
+   "transfers": 1108,
+   "laundering": 655,
+   "one_in": 2
+  }
+ },
+ "budgets": [
+  250,
+  500,
+  1000,
+  2000,
+  5000
+ ],
+ "main_budget": 1000,
+ "features": {
+  "transfer": 8,
+  "customer": 14,
+  "behavior": 32,
+  "network": 48
+ },
+ "seed": 20261122,
+ "versions": {
+  "xgboost": "3.4.1",
+  "scikit-learn": "1.9.1",
+  "pandas": "3.0.5",
+  "numpy": "2.5.3"
+ },
+ "rule": {
+  "quantities_watched": 34,
+  "kept": "Sum of the best z-scores, up to 5, high or low side",
+  "laundering_on_training_days": 1800,
+  "variants": [
+   {
+    "variant": "Classic: largest z-score of amount, sender volume, receiver volume",
+    "found_on_training_days": 7,
+    "found_on_tuning_days": 2,
+    "share_found": 0.0019305019305019305,
+    "terms": [
+     {
+      "quantity": "amount_log",
+      "meaning": "size of the transfer",
+      "side": "high"
+     },
+     {
+      "quantity": "s_sent_1d",
+      "meaning": "transfers the sender made today",
+      "side": "high"
+     },
+     {
+      "quantity": "r_recv_1d",
+      "meaning": "transfers the receiver got today",
+      "side": "high"
+     }
+    ]
+   },
+   {
+    "variant": "Largest z-score of all 34 quantities",
+    "found_on_training_days": 171,
+    "found_on_tuning_days": 101,
+    "share_found": 0.09749034749034749,
+    "terms": null
+   },
+   {
+    "variant": "Best single z-score, high or low side",
+    "found_on_training_days": 171,
+    "found_on_tuning_days": 144,
+    "share_found": 0.138996138996139,
+    "terms": [
+     {
+      "quantity": "s_receivers_ach_3d",
+      "meaning": "different accounts the sender paid by ACH in 3 days",
+      "side": "high"
+     }
+    ]
+   },
+   {
+    "variant": "Sum of the best z-scores, up to 5, high or low side",
+    "found_on_training_days": 389,
+    "found_on_tuning_days": 263,
+    "share_found": 0.25386100386100385,
+    "terms": [
+     {
+      "quantity": "s_receivers_ach_3d",
+      "meaning": "different accounts the sender paid by ACH in 3 days",
+      "side": "high"
+     },
+     {
+      "quantity": "loop_size_5d",
+      "meaning": "accounts on that 5-day loop",
+      "side": "high"
+     },
+     {
+      "quantity": "s_sent_ach_3d",
+      "meaning": "ACH transfers the sender made in 3 days",
+      "side": "low"
+     },
+     {
+      "quantity": "r_currencies_3d",
+      "meaning": "currencies the receiver used in 3 days",
+      "side": "low"
+     },
+     {
+      "quantity": "r_recv_ach_3d",
+      "meaning": "ACH transfers the receiver got in 3 days",
+      "side": "low"
+     }
+    ]
+   }
+  ],
+  "terms_chosen_on_tuning_days_instead": {
+   "found_on_tuning_days": 323,
+   "found_on_test_days": 79,
+   "laundering_on_test_days": 956
+  }
+ },
+ "linear": {
+  "columns_after_one_hot": 100,
+  "iterations": 62
+ },
+ "grid": [
+  {
+   "max_depth": 6,
+   "min_child_weight": 1,
+   "trees": 121,
+   "average_precision_on_tuning_days": 0.6147394283597329
+  },
+  {
+   "max_depth": 6,
+   "min_child_weight": 5,
+   "trees": 118,
+   "average_precision_on_tuning_days": 0.6257118646482113
+  },
+  {
+   "max_depth": 8,
+   "min_child_weight": 1,
+   "trees": 99,
+   "average_precision_on_tuning_days": 0.6147052181282543
+  },
+  {
+   "max_depth": 8,
+   "min_child_weight": 5,
+   "trees": 108,
+   "average_precision_on_tuning_days": 0.6281226492874914
+  }
+ ],
+ "chosen": {
+  "max_depth": 8,
+  "min_child_weight": 5,
+  "learning_rate": 0.08,
+  "subsample": 0.8,
+  "colsample_bytree": 0.7,
+  "tree_method": "hist",
+  "max_bin": 128,
+  "most_trees": 600,
+  "stop_after": 40
+ },
+ "models": {
+  "transfer": {
+   "features": 8,
+   "trees": 74
+  },
+  "customer": {
+   "features": 14,
+   "trees": 297
+  },
+  "behavior": {
+   "features": 32,
+   "trees": 137
+  },
+  "network": {
+   "features": 48,
+   "trees": 108
+  }
+ },
+ "ladder": [
+  {
+   "from": "transfer",
+   "to": "customer",
+   "found_a": 245,
+   "found_b": 358,
+   "both": 197,
+   "only_a": 48,
+   "only_b": 161,
+   "laundering": 1036,
+   "schemes": 536,
+   "gain": 0.10907335907335908,
+   "gain_low": 0.07647374424047176,
+   "gain_high": 0.14337003227862413,
+   "mcnemar_p": 1.8388797514434096e-15,
+   "adopted": true
+  },
+  {
+   "from": "customer",
+   "to": "behavior",
+   "found_a": 358,
+   "found_b": 696,
+   "both": 342,
+   "only_a": 16,
+   "only_b": 354,
+   "laundering": 1036,
+   "schemes": 536,
+   "gain": 0.32625482625482627,
+   "gain_low": 0.2893342356592976,
+   "gain_high": 0.3615884958127974,
+   "mcnemar_p": 3.6952541795889884e-84,
+   "adopted": true
+  },
+  {
+   "from": "behavior",
+   "to": "network",
+   "found_a": 696,
+   "found_b": 694,
+   "both": 659,
+   "only_a": 37,
+   "only_b": 35,
+   "laundering": 1036,
+   "schemes": 536,
+   "gain": -0.0019305019305019305,
+   "gain_low": -0.018540568270900903,
+   "gain_high": 0.014549688518888227,
+   "mcnemar_p": 0.906294324703081,
+   "adopted": false
+  }
+ ],
+ "adopted": "behavior",
+ "boosting_against_regression": {
+  "found_a": 599,
+  "found_b": 696,
+  "both": 565,
+  "only_a": 34,
+  "only_b": 131,
+  "laundering": 1036,
+  "schemes": 536,
+  "gain": 0.09362934362934362,
+  "gain_low": 0.06640829596938896,
+  "gain_high": 0.12056838617122305,
+  "mcnemar_p": 1.2438483814035563e-14
+ },
+ "class_weight": [
+  {
+   "weight": "none",
+   "value": 1.0,
+   "average_precision_on_tuning_days": 0.6485287019158282,
+   "found_at_main_budget": 696,
+   "brier_on_tuning_days": 0.0005224519409239292,
+   "mean_score": 0.0010524753015488386,
+   "true_rate": 0.0010729924890525767
+  },
+  {
+   "weight": "square root of the imbalance",
+   "value": 27.7,
+   "average_precision_on_tuning_days": 0.6316102612514843,
+   "found_at_main_budget": 694,
+   "brier_on_tuning_days": 0.001446855952963233,
+   "mean_score": 0.004789379891008139,
+   "true_rate": 0.0010729924890525767
+  },
+  {
+   "weight": "the full imbalance",
+   "value": 765.4,
+   "average_precision_on_tuning_days": 0.6021118545039622,
+   "found_at_main_budget": 663,
+   "brier_on_tuning_days": 0.006749402265995741,
+   "mean_score": 0.01692810468375683,
+   "true_rate": 0.0010729924890525767
+  }
+ ],
+ "warmup_check": [
+  {
+   "trained_on": "days 2 to 5",
+   "transfers": 1379551,
+   "laundering": 1800,
+   "trees": 137,
+   "average_precision_on_tuning_days": 0.6485287019158282,
+   "found_at_main_budget": 696
+  },
+  {
+   "trained_on": "days 0 to 5",
+   "transfers": 3248921,
+   "laundering": 2530,
+   "trees": 160,
+   "average_precision_on_tuning_days": 0.6255324554487686,
+   "found_at_main_budget": 669
+  }
+ ],
+ "tune": {
+  "rule": {
+   "average_precision": 0.07128738410719397,
+   "roc_auc": 0.7543779404642371,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 54,
+     "laundering": 1036,
+     "precision": 0.108,
+     "precision_low": 0.08372280946784565,
+     "precision_high": 0.13825467354759163,
+     "recall": 0.052123552123552123,
+     "recall_low": 0.03194550190431102,
+     "recall_high": 0.07547312318303596
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 75,
+     "laundering": 1036,
+     "precision": 0.075,
+     "precision_low": 0.06025180486909087,
+     "precision_high": 0.09300093989474906,
+     "recall": 0.07239382239382239,
+     "recall_low": 0.04959404273077525,
+     "recall_high": 0.09950028462625628
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 263,
+     "laundering": 1036,
+     "precision": 0.1315,
+     "precision_low": 0.11739290074954689,
+     "precision_high": 0.14701996311898274,
+     "recall": 0.25386100386100385,
+     "recall_low": 0.20150522419432568,
+     "recall_high": 0.3081295936902967
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 400,
+     "laundering": 1036,
+     "precision": 0.1,
+     "precision_low": 0.091083391175812,
+     "precision_high": 0.10968416346804631,
+     "recall": 0.3861003861003861,
+     "recall_low": 0.33403795555494853,
+     "recall_high": 0.4322122355715633
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 458,
+     "laundering": 1036,
+     "precision": 0.0458,
+     "precision_low": 0.041874161476835,
+     "precision_high": 0.050074662648588474,
+     "recall": 0.4420849420849421,
+     "recall_low": 0.38760896637608966,
+     "recall_high": 0.48926081909743363
+    }
+   },
+   "best_f1": 0.19030258840685382
+  },
+  "forest": {
+   "average_precision": 0.010085962935088918,
+   "roc_auc": 0.7857424769975782,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 36,
+     "laundering": 1036,
+     "precision": 0.072,
+     "precision_low": 0.05245803128704543,
+     "precision_high": 0.09806840425021768,
+     "recall": 0.03474903474903475,
+     "recall_low": 0.020625959276580227,
+     "recall_high": 0.05217411929708769
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 44,
+     "laundering": 1036,
+     "precision": 0.044,
+     "precision_low": 0.03293821451334182,
+     "precision_high": 0.058551789280331154,
+     "recall": 0.04247104247104247,
+     "recall_low": 0.02730268574510973,
+     "recall_high": 0.06209984188341483
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 66,
+     "laundering": 1036,
+     "precision": 0.033,
+     "precision_low": 0.026022752651606203,
+     "precision_high": 0.04176776953727671,
+     "recall": 0.0637065637065637,
+     "recall_low": 0.045013034396087136,
+     "recall_high": 0.08837384597405631
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 80,
+     "laundering": 1036,
+     "precision": 0.02,
+     "precision_low": 0.016099663696122094,
+     "precision_high": 0.02482140187650789,
+     "recall": 0.07722007722007722,
+     "recall_low": 0.055283453972355526,
+     "recall_high": 0.1035809238949817
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 118,
+     "laundering": 1036,
+     "precision": 0.0118,
+     "precision_low": 0.00986311936256926,
+     "precision_high": 0.014111816652471992,
+     "recall": 0.1138996138996139,
+     "recall_low": 0.08576374496814035,
+     "recall_high": 0.14712204636121143
+    }
+   },
+   "best_f1": 0.048409405255878286
+  },
+  "linear": {
+   "average_precision": 0.5180805995745483,
+   "roc_auc": 0.9734341960384431,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 408,
+     "laundering": 1036,
+     "precision": 0.816,
+     "precision_low": 0.7796708959018862,
+     "precision_high": 0.8475105208509756,
+     "recall": 0.3938223938223938,
+     "recall_low": 0.3381567462353635,
+     "recall_high": 0.44556515726896356
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 518,
+     "laundering": 1036,
+     "precision": 0.518,
+     "precision_low": 0.4870206911194803,
+     "precision_high": 0.5488415455728748,
+     "recall": 0.5,
+     "recall_low": 0.448083162568306,
+     "recall_high": 0.5482111011650741
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 599,
+     "laundering": 1036,
+     "precision": 0.2995,
+     "precision_low": 0.2798258589330141,
+     "precision_high": 0.3199428770388724,
+     "recall": 0.5781853281853282,
+     "recall_low": 0.5279510829966219,
+     "recall_high": 0.6246625860456498
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 679,
+     "laundering": 1036,
+     "precision": 0.16975,
+     "precision_low": 0.15843416600593985,
+     "precision_high": 0.18169954629689572,
+     "recall": 0.6554054054054054,
+     "recall_low": 0.607933948365664,
+     "recall_high": 0.6967505131514908
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 825,
+     "laundering": 1036,
+     "precision": 0.0825,
+     "precision_low": 0.07726662120189873,
+     "precision_high": 0.08805401744267263,
+     "recall": 0.7963320463320464,
+     "recall_low": 0.7597910246828898,
+     "recall_high": 0.8274915789295507
+    }
+   },
+   "best_f1": 0.5469879518072289
+  },
+  "transfer": {
+   "average_precision": 0.07569296770463324,
+   "roc_auc": 0.919769385655042,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 97,
+     "laundering": 1036,
+     "precision": 0.194,
+     "precision_low": 0.1617264664076395,
+     "precision_high": 0.23093963002788043,
+     "recall": 0.09362934362934362,
+     "recall_low": 0.0735257876425488,
+     "recall_high": 0.11487094108496984
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 156,
+     "laundering": 1036,
+     "precision": 0.156,
+     "precision_low": 0.13483131523285788,
+     "precision_high": 0.1798014946465796,
+     "recall": 0.15057915057915058,
+     "recall_low": 0.12459383740833783,
+     "recall_high": 0.17556836248012717
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 245,
+     "laundering": 1036,
+     "precision": 0.1225,
+     "precision_low": 0.1088502958873566,
+     "precision_high": 0.13759707483277894,
+     "recall": 0.23648648648648649,
+     "recall_low": 0.2027706384896418,
+     "recall_high": 0.26641105889016753
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 361,
+     "laundering": 1036,
+     "precision": 0.09025,
+     "precision_low": 0.08175889949830085,
+     "precision_high": 0.09952736429000149,
+     "recall": 0.3484555984555985,
+     "recall_low": 0.3035118327587034,
+     "recall_high": 0.38347800888576805
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 520,
+     "laundering": 1036,
+     "precision": 0.052,
+     "precision_low": 0.04781781736689126,
+     "precision_high": 0.056526245178660735,
+     "recall": 0.5019305019305019,
+     "recall_low": 0.45503502882580454,
+     "recall_high": 0.5415106869735331
+    }
+   },
+   "best_f1": 0.16120401337792642
+  },
+  "customer": {
+   "average_precision": 0.22175068532090111,
+   "roc_auc": 0.9696861639739622,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 201,
+     "laundering": 1036,
+     "precision": 0.402,
+     "precision_low": 0.35992874000256914,
+     "precision_high": 0.4455656307512903,
+     "recall": 0.19401544401544402,
+     "recall_low": 0.16200807239313897,
+     "recall_high": 0.22598420332872302
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 267,
+     "laundering": 1036,
+     "precision": 0.267,
+     "precision_low": 0.24051036825750954,
+     "precision_high": 0.29527290122478383,
+     "recall": 0.2577220077220077,
+     "recall_low": 0.22243295843119337,
+     "recall_high": 0.2939467842747824
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 358,
+     "laundering": 1036,
+     "precision": 0.179,
+     "precision_low": 0.16281935960153665,
+     "precision_high": 0.19641138477240638,
+     "recall": 0.34555984555984554,
+     "recall_low": 0.3058011208782772,
+     "recall_high": 0.38414370679350324
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 455,
+     "laundering": 1036,
+     "precision": 0.11375,
+     "precision_low": 0.1042788517824771,
+     "precision_high": 0.12396231817049859,
+     "recall": 0.4391891891891892,
+     "recall_low": 0.3997942584099032,
+     "recall_high": 0.4756217551297948
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 621,
+     "laundering": 1036,
+     "precision": 0.0621,
+     "precision_low": 0.05753595261771289,
+     "precision_high": 0.06700035316062912,
+     "recall": 0.5994208494208494,
+     "recall_low": 0.559678613453878,
+     "recall_high": 0.6340860923774663
+    }
+   },
+   "best_f1": 0.2719812426729191
+  },
+  "behavior": {
+   "average_precision": 0.6485287019158282,
+   "roc_auc": 0.9888608072255769,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 489,
+     "laundering": 1036,
+     "precision": 0.978,
+     "precision_low": 0.9610391386195835,
+     "precision_high": 0.9876719917850619,
+     "recall": 0.472007722007722,
+     "recall_low": 0.41867171799135644,
+     "recall_high": 0.5184256878986956
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 606,
+     "laundering": 1036,
+     "precision": 0.606,
+     "precision_low": 0.5753643004401066,
+     "precision_high": 0.6358244267482063,
+     "recall": 0.584942084942085,
+     "recall_low": 0.5314839897819759,
+     "recall_high": 0.6302004327336365
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 696,
+     "laundering": 1036,
+     "precision": 0.348,
+     "precision_low": 0.3274334124876774,
+     "precision_high": 0.36914936989499963,
+     "recall": 0.6718146718146718,
+     "recall_low": 0.6241001659856997,
+     "recall_high": 0.7119996799684299
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 800,
+     "laundering": 1036,
+     "precision": 0.2,
+     "precision_low": 0.18789453736023448,
+     "precision_high": 0.2126811286226593,
+     "recall": 0.7722007722007722,
+     "recall_low": 0.7345016898914146,
+     "recall_high": 0.8049209539357217
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 870,
+     "laundering": 1036,
+     "precision": 0.087,
+     "precision_low": 0.08163350976711267,
+     "precision_high": 0.09268367289206808,
+     "recall": 0.8397683397683398,
+     "recall_low": 0.8070281946610501,
+     "recall_high": 0.8659193601496921
+    }
+   },
+   "best_f1": 0.6670680313064419
+  },
+  "network": {
+   "average_precision": 0.6517183687730095,
+   "roc_auc": 0.9892769591653869,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 482,
+     "laundering": 1036,
+     "precision": 0.964,
+     "precision_low": 0.9438156728403976,
+     "precision_high": 0.9771089391005136,
+     "recall": 0.46525096525096526,
+     "recall_low": 0.4090313319330106,
+     "recall_high": 0.5105881168362002
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 621,
+     "laundering": 1036,
+     "precision": 0.621,
+     "precision_low": 0.5905223579616176,
+     "precision_high": 0.6505515664703244,
+     "recall": 0.5994208494208494,
+     "recall_low": 0.543262942134308,
+     "recall_high": 0.6450178898799894
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 694,
+     "laundering": 1036,
+     "precision": 0.347,
+     "precision_low": 0.3264493235651557,
+     "precision_high": 0.3681372929121442,
+     "recall": 0.6698841698841699,
+     "recall_low": 0.6204730648435406,
+     "recall_high": 0.7101843821790034
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 802,
+     "laundering": 1036,
+     "precision": 0.2005,
+     "precision_low": 0.18838247141610695,
+     "precision_high": 0.21319223512348198,
+     "recall": 0.7741312741312741,
+     "recall_low": 0.7356507328462687,
+     "recall_high": 0.8062816266918994
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 874,
+     "laundering": 1036,
+     "precision": 0.0874,
+     "precision_low": 0.08202189646330188,
+     "precision_high": 0.0930949789971775,
+     "recall": 0.8436293436293436,
+     "recall_low": 0.8121515806089811,
+     "recall_high": 0.8701387379140683
+    }
+   },
+   "best_f1": 0.6686425607587433
+  }
+ },
+ "test": {
+  "rule": {
+   "average_precision": 0.054008907836560746,
+   "roc_auc": 0.722223961209135,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 49,
+     "laundering": 956,
+     "precision": 0.098,
+     "precision_low": 0.0749239187051517,
+     "precision_high": 0.12720605112190383,
+     "recall": 0.051255230125523014,
+     "recall_low": 0.03333160083160083,
+     "recall_high": 0.07006467923041565
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 65,
+     "laundering": 956,
+     "precision": 0.065,
+     "precision_low": 0.05132377047325939,
+     "precision_high": 0.08200550946149443,
+     "recall": 0.06799163179916318,
+     "recall_low": 0.04850657801613639,
+     "recall_high": 0.08939771287099532
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 215,
+     "laundering": 956,
+     "precision": 0.1075,
+     "precision_low": 0.09466955199744725,
+     "precision_high": 0.1218353301420314,
+     "recall": 0.22489539748953974,
+     "recall_low": 0.17677357100512917,
+     "recall_high": 0.27447023208879917
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 300,
+     "laundering": 956,
+     "precision": 0.075,
+     "precision_low": 0.06723906398137479,
+     "precision_high": 0.08357646282772464,
+     "recall": 0.3138075313807531,
+     "recall_low": 0.26644086046951915,
+     "recall_high": 0.35847795869636484
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 330,
+     "laundering": 956,
+     "precision": 0.033,
+     "precision_low": 0.0296741980774667,
+     "precision_high": 0.036684456406401125,
+     "recall": 0.34518828451882844,
+     "recall_low": 0.2968859876332293,
+     "recall_high": 0.3902697529972555
+    }
+   },
+   "f1_at_the_tuning_line": 0.13489208633093525
+  },
+  "forest": {
+   "average_precision": 0.004402787892037621,
+   "roc_auc": 0.7777500336879323,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 12,
+     "laundering": 956,
+     "precision": 0.024,
+     "precision_low": 0.013781314596471032,
+     "precision_high": 0.0414770576365599,
+     "recall": 0.012552301255230125,
+     "recall_low": 0.005470310052492496,
+     "recall_high": 0.020497332283740045
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 30,
+     "laundering": 956,
+     "precision": 0.03,
+     "precision_low": 0.02109373877061023,
+     "precision_high": 0.04250341426234219,
+     "recall": 0.03138075313807531,
+     "recall_low": 0.019782110622898377,
+     "recall_high": 0.0439486003404577
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 38,
+     "laundering": 956,
+     "precision": 0.019,
+     "precision_low": 0.013873784884096723,
+     "precision_high": 0.025970414629506448,
+     "recall": 0.0397489539748954,
+     "recall_low": 0.025639059304703476,
+     "recall_high": 0.0549577195554463
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 60,
+     "laundering": 956,
+     "precision": 0.015,
+     "precision_low": 0.011671610608853758,
+     "precision_high": 0.019259049396824452,
+     "recall": 0.06276150627615062,
+     "recall_low": 0.04511926421645673,
+     "recall_high": 0.08099215638585716
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 89,
+     "laundering": 956,
+     "precision": 0.0089,
+     "precision_low": 0.00723851888430478,
+     "precision_high": 0.01093864432132152,
+     "recall": 0.09309623430962342,
+     "recall_low": 0.06952831309305868,
+     "recall_high": 0.11971277174837545
+    }
+   },
+   "f1_at_the_tuning_line": 0.018691588785046728
+  },
+  "linear": {
+   "average_precision": 0.4355190812305149,
+   "roc_auc": 0.9672280491054799,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 339,
+     "laundering": 956,
+     "precision": 0.678,
+     "precision_low": 0.6358218268800528,
+     "precision_high": 0.7174639078731415,
+     "recall": 0.35460251046025104,
+     "recall_low": 0.3082189854692821,
+     "recall_high": 0.40099592244960763
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 429,
+     "laundering": 956,
+     "precision": 0.429,
+     "precision_low": 0.3986535227815683,
+     "precision_high": 0.4598898769319202,
+     "recall": 0.448744769874477,
+     "recall_low": 0.40308163472479946,
+     "recall_high": 0.4947947524137227
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 514,
+     "laundering": 956,
+     "precision": 0.257,
+     "precision_low": 0.23832742275005267,
+     "precision_high": 0.2766042622433062,
+     "recall": 0.5376569037656904,
+     "recall_low": 0.48945826992275077,
+     "recall_high": 0.5828102846548151
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 598,
+     "laundering": 956,
+     "precision": 0.1495,
+     "precision_low": 0.13878612361857567,
+     "precision_high": 0.16088644613810515,
+     "recall": 0.6255230125523012,
+     "recall_low": 0.5824663938075562,
+     "recall_high": 0.6657116928845678
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 698,
+     "laundering": 956,
+     "precision": 0.0698,
+     "precision_low": 0.0649692456418942,
+     "precision_high": 0.07496114656144613,
+     "recall": 0.7301255230125523,
+     "recall_low": 0.6925610706860706,
+     "recall_high": 0.7656791902939953
+    }
+   },
+   "f1_at_the_tuning_line": 0.46108835576360446
+  },
+  "transfer": {
+   "average_precision": 0.06927807871511148,
+   "roc_auc": 0.9212073126708707,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 96,
+     "laundering": 956,
+     "precision": 0.192,
+     "precision_low": 0.15987621836155638,
+     "precision_high": 0.22882037543628722,
+     "recall": 0.100418410041841,
+     "recall_low": 0.07817419364086245,
+     "recall_high": 0.1227144983752796
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 152,
+     "laundering": 956,
+     "precision": 0.152,
+     "precision_low": 0.1310825024084537,
+     "precision_high": 0.17558092153934934,
+     "recall": 0.1589958158995816,
+     "recall_low": 0.12858491903584432,
+     "recall_high": 0.1873174172560694
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 237,
+     "laundering": 956,
+     "precision": 0.1185,
+     "precision_low": 0.10506147963278073,
+     "precision_high": 0.1334012274658463,
+     "recall": 0.24790794979079497,
+     "recall_low": 0.21005000498802873,
+     "recall_high": 0.28398928135244583
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 343,
+     "laundering": 956,
+     "precision": 0.08575,
+     "precision_low": 0.07746554966489402,
+     "precision_high": 0.09482934911315175,
+     "recall": 0.3587866108786611,
+     "recall_low": 0.31485220983649664,
+     "recall_high": 0.3982127331996185
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 485,
+     "laundering": 956,
+     "precision": 0.0485,
+     "precision_low": 0.044460214924420635,
+     "precision_high": 0.052886535609768484,
+     "recall": 0.5073221757322176,
+     "recall_low": 0.46170257532401954,
+     "recall_high": 0.5483286365271616
+    }
+   },
+   "f1_at_the_tuning_line": 0.14985795454545456
+  },
+  "customer": {
+   "average_precision": 0.20329032541620132,
+   "roc_auc": 0.9700807564646312,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 184,
+     "laundering": 956,
+     "precision": 0.368,
+     "precision_low": 0.32688454806460576,
+     "precision_high": 0.41112827784875583,
+     "recall": 0.19246861924686193,
+     "recall_low": 0.1612886229987423,
+     "recall_high": 0.22244455124354195
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 249,
+     "laundering": 956,
+     "precision": 0.249,
+     "precision_low": 0.22319257637278497,
+     "precision_high": 0.2767284564171533,
+     "recall": 0.2604602510460251,
+     "recall_low": 0.22365244751479912,
+     "recall_high": 0.29524018379281536
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 334,
+     "laundering": 956,
+     "precision": 0.167,
+     "precision_low": 0.15129549165377335,
+     "precision_high": 0.1839812618556442,
+     "recall": 0.3493723849372385,
+     "recall_low": 0.3079213303799044,
+     "recall_high": 0.38842722760248527
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 436,
+     "laundering": 956,
+     "precision": 0.109,
+     "precision_low": 0.09971486769372476,
+     "precision_high": 0.11903541697064673,
+     "recall": 0.4560669456066946,
+     "recall_low": 0.4147156299249096,
+     "recall_high": 0.4951397338325419
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 599,
+     "laundering": 956,
+     "precision": 0.0599,
+     "precision_low": 0.05541579739243663,
+     "precision_high": 0.06472219797876301,
+     "recall": 0.6265690376569037,
+     "recall_low": 0.5864703766761693,
+     "recall_high": 0.6609735002532892
+    }
+   },
+   "f1_at_the_tuning_line": 0.24647455548743102
+  },
+  "behavior": {
+   "average_precision": 0.5673308134174047,
+   "roc_auc": 0.9807875881005698,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 449,
+     "laundering": 956,
+     "precision": 0.898,
+     "precision_low": 0.8683653768373393,
+     "precision_high": 0.9215656480602527,
+     "recall": 0.4696652719665272,
+     "recall_low": 0.4162098273887506,
+     "recall_high": 0.5196721282604235
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 519,
+     "laundering": 956,
+     "precision": 0.519,
+     "precision_low": 0.4880191460091318,
+     "precision_high": 0.5498354371661318,
+     "recall": 0.5428870292887029,
+     "recall_low": 0.4915421217921607,
+     "recall_high": 0.5903663788100378
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 582,
+     "laundering": 956,
+     "precision": 0.291,
+     "precision_low": 0.2715088601794763,
+     "precision_high": 0.31129246559670465,
+     "recall": 0.608786610878661,
+     "recall_low": 0.5578664682539682,
+     "recall_high": 0.6546072667206119
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 666,
+     "laundering": 956,
+     "precision": 0.1665,
+     "precision_low": 0.15527650143858537,
+     "precision_high": 0.17836344724573153,
+     "recall": 0.696652719665272,
+     "recall_low": 0.65367154481525,
+     "recall_high": 0.7348148643722922
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 759,
+     "laundering": 956,
+     "precision": 0.0759,
+     "precision_low": 0.07087056554192286,
+     "precision_high": 0.08125514188122132,
+     "recall": 0.7939330543933054,
+     "recall_low": 0.7599383398885612,
+     "recall_high": 0.823122697695679
+    }
+   },
+   "f1_at_the_tuning_line": 0.6060217809096733
+  },
+  "network": {
+   "average_precision": 0.5775774130469028,
+   "roc_auc": 0.9821851196397859,
+   "by_budget": {
+    "250": {
+     "alerts": 500,
+     "found": 451,
+     "laundering": 956,
+     "precision": 0.902,
+     "precision_low": 0.8727939488780962,
+     "precision_high": 0.9250760812948484,
+     "recall": 0.47175732217573224,
+     "recall_low": 0.41997608670186337,
+     "recall_high": 0.5205495869396761
+    },
+    "500": {
+     "alerts": 1000,
+     "found": 527,
+     "laundering": 956,
+     "precision": 0.527,
+     "precision_low": 0.4960112342655467,
+     "precision_high": 0.5577821207729858,
+     "recall": 0.551255230125523,
+     "recall_low": 0.49888392857142855,
+     "recall_high": 0.5992219773134507
+    },
+    "1000": {
+     "alerts": 2000,
+     "found": 592,
+     "laundering": 956,
+     "precision": 0.296,
+     "precision_low": 0.2764002065180338,
+     "precision_high": 0.31638194878503284,
+     "recall": 0.6192468619246861,
+     "recall_low": 0.5698267802221382,
+     "recall_high": 0.6634050880626223
+    },
+    "2000": {
+     "alerts": 4000,
+     "found": 670,
+     "laundering": 956,
+     "precision": 0.1675,
+     "precision_low": 0.15624792407548746,
+     "precision_high": 0.17939010572221978,
+     "recall": 0.700836820083682,
+     "recall_low": 0.65822376480196,
+     "recall_high": 0.7388048763013189
+    },
+    "5000": {
+     "alerts": 10000,
+     "found": 772,
+     "laundering": 956,
+     "precision": 0.0772,
+     "precision_low": 0.07212952881562493,
+     "precision_high": 0.08259518021173978,
+     "recall": 0.8075313807531381,
+     "recall_low": 0.7754418907895387,
+     "recall_high": 0.8367599723493604
+    }
+   },
+   "f1_at_the_tuning_line": 0.6107341147439852
+  }
+ },
+ "test_by_kind": {
+  "BIPARTITE": {
+   "laundering": 44,
+   "rule": 9,
+   "linear": 33,
+   "behavior": 38
+  },
+  "CYCLE": {
+   "laundering": 55,
+   "rule": 18,
+   "linear": 36,
+   "behavior": 47
+  },
+  "FAN-IN": {
+   "laundering": 57,
+   "rule": 3,
+   "linear": 43,
+   "behavior": 49
+  },
+  "FAN-OUT": {
+   "laundering": 65,
+   "rule": 59,
+   "linear": 62,
+   "behavior": 65
+  },
+  "GATHER-SCATTER": {
+   "laundering": 127,
+   "rule": 49,
+   "linear": 104,
+   "behavior": 121
+  },
+  "Not in a labeled scheme": {
+   "laundering": 371,
+   "rule": 13,
+   "linear": 43,
+   "behavior": 47
+  },
+  "RANDOM": {
+   "laundering": 43,
+   "rule": 8,
+   "linear": 34,
+   "behavior": 38
+  },
+  "SCATTER-GATHER": {
+   "laundering": 110,
+   "rule": 50,
+   "linear": 97,
+   "behavior": 103
+  },
+  "STACK": {
+   "laundering": 84,
+   "rule": 6,
+   "linear": 62,
+   "behavior": 74
+  },
+  "In a labeled scheme (all 8 types)": {
+   "laundering": 585,
+   "rule": 202,
+   "linear": 471,
+   "behavior": 535
+  },
+  "In a labeled scheme that began before the test days": {
+   "laundering": 375,
+   "rule": 125,
+   "linear": 307,
+   "behavior": 352
+  },
+  "In a labeled scheme that began on the test days": {
+   "laundering": 210,
+   "rule": 77,
+   "linear": 164,
+   "behavior": 183
+  },
+  "All laundering": {
+   "laundering": 956,
+   "rule": 215,
+   "linear": 514,
+   "behavior": 582
+  }
+ }
+}

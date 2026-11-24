@@ -1,0 +1,400 @@
+{
+ "data": {
+  "by_day": [
+   {
+    "day": 0,
+    "weekday": "Thursday",
+    "transfers": 1114921,
+    "laundering": 322
+   },
+   {
+    "day": 1,
+    "weekday": "Friday",
+    "transfers": 754449,
+    "laundering": 408
+   },
+   {
+    "day": 2,
+    "weekday": "Saturday",
+    "transfers": 207382,
+    "laundering": 391
+   },
+   {
+    "day": 3,
+    "weekday": "Sunday",
+    "transfers": 207430,
+    "laundering": 407
+   },
+   {
+    "day": 4,
+    "weekday": "Monday",
+    "transfers": 482650,
+    "laundering": 471
+   },
+   {
+    "day": 5,
+    "weekday": "Tuesday",
+    "transfers": 482089,
+    "laundering": 531
+   },
+   {
+    "day": 6,
+    "weekday": "Wednesday",
+    "transfers": 482751,
+    "laundering": 497
+   },
+   {
+    "day": 7,
+    "weekday": "Thursday",
+    "transfers": 482773,
+    "laundering": 539
+   },
+   {
+    "day": 8,
+    "weekday": "Friday",
+    "transfers": 654467,
+    "laundering": 514
+   },
+   {
+    "day": 9,
+    "weekday": "Saturday",
+    "transfers": 208325,
+    "laundering": 442
+   },
+   {
+    "day": 10,
+    "weekday": "Sunday",
+    "transfers": 396,
+    "laundering": 232
+   },
+   {
+    "day": 11,
+    "weekday": "Monday",
+    "transfers": 281,
+    "laundering": 170
+   },
+   {
+    "day": 12,
+    "weekday": "Tuesday",
+    "transfers": 184,
+    "laundering": 106
+   },
+   {
+    "day": 13,
+    "weekday": "Wednesday",
+    "transfers": 121,
+    "laundering": 70
+   },
+   {
+    "day": 14,
+    "weekday": "Thursday",
+    "transfers": 46,
+    "laundering": 28
+   },
+   {
+    "day": 15,
+    "weekday": "Friday",
+    "transfers": 46,
+    "laundering": 26
+   },
+   {
+    "day": 16,
+    "weekday": "Saturday",
+    "transfers": 23,
+    "laundering": 15
+   },
+   {
+    "day": 17,
+    "weekday": "Sunday",
+    "transfers": 11,
+    "laundering": 8
+   }
+  ],
+  "second_portfolio_by_day": [
+   {
+    "day": 0,
+    "weekday": "Thursday",
+    "transfers": 1524807,
+    "laundering": 310
+   },
+   {
+    "day": 1,
+    "weekday": "Friday",
+    "transfers": 1027758,
+    "laundering": 350
+   },
+   {
+    "day": 2,
+    "weekday": "Saturday",
+    "transfers": 283326,
+    "laundering": 292
+   },
+   {
+    "day": 3,
+    "weekday": "Sunday",
+    "transfers": 282476,
+    "laundering": 291
+   },
+   {
+    "day": 4,
+    "weekday": "Monday",
+    "transfers": 657397,
+    "laundering": 370
+   },
+   {
+    "day": 5,
+    "weekday": "Tuesday",
+    "transfers": 657170,
+    "laundering": 380
+   },
+   {
+    "day": 6,
+    "weekday": "Wednesday",
+    "transfers": 658504,
+    "laundering": 368
+   },
+   {
+    "day": 7,
+    "weekday": "Thursday",
+    "transfers": 657938,
+    "laundering": 402
+   },
+   {
+    "day": 8,
+    "weekday": "Friday",
+    "transfers": 891573,
+    "laundering": 367
+   },
+   {
+    "day": 9,
+    "weekday": "Saturday",
+    "transfers": 282877,
+    "laundering": 301
+   },
+   {
+    "day": 10,
+    "weekday": "Sunday",
+    "transfers": 77,
+    "laundering": 47
+   },
+   {
+    "day": 11,
+    "weekday": "Monday",
+    "transfers": 48,
+    "laundering": 27
+   },
+   {
+    "day": 12,
+    "weekday": "Tuesday",
+    "transfers": 48,
+    "laundering": 29
+   },
+   {
+    "day": 13,
+    "weekday": "Wednesday",
+    "transfers": 31,
+    "laundering": 18
+   },
+   {
+    "day": 14,
+    "weekday": "Thursday",
+    "transfers": 9,
+    "laundering": 6
+   },
+   {
+    "day": 15,
+    "weekday": "Friday",
+    "transfers": 7,
+    "laundering": 5
+   },
+   {
+    "day": 16,
+    "weekday": "Saturday",
+    "transfers": 3,
+    "laundering": 2
+   }
+  ],
+  "transfers": 5078345,
+  "laundering": 5177,
+  "test_transfers": 862792,
+  "test_laundering": 956,
+  "second_portfolio_transfers": 6924049,
+  "second_portfolio_one_in": 1942
+ },
+ "step_3_test_days_at_1000_a_day": {
+  "rule": {
+   "found": 215,
+   "share_found": 0.22489539748953974,
+   "precision": 0.1075
+  },
+  "forest": {
+   "found": 38,
+   "share_found": 0.0397489539748954,
+   "precision": 0.019
+  },
+  "linear": {
+   "found": 502,
+   "share_found": 0.5251046025104602,
+   "precision": 0.251
+  },
+  "behavior": {
+   "found": 578,
+   "share_found": 0.604602510460251,
+   "precision": 0.289
+  },
+  "network": {
+   "found": 580,
+   "share_found": 0.606694560669456,
+   "precision": 0.29
+  }
+ },
+ "step_3_adopted": {
+  "feature_set": "behavior",
+  "features": 32,
+  "trees": 139,
+  "network_gain_on_tuning_days": {
+   "found_a": 685,
+   "found_b": 698,
+   "gain": 0.012548262548262547,
+   "gain_low": -0.003560908592505603,
+   "gain_high": 0.029354926197599912,
+   "adopted": false
+  },
+  "in_labeled_schemes": {
+   "laundering": 585,
+   "rule": 202,
+   "linear": 469,
+   "behavior": 534
+  },
+  "not_in_a_labeled_scheme": {
+   "laundering": 371,
+   "rule": 13,
+   "linear": 33,
+   "behavior": 44
+  }
+ },
+ "step_4_line": {
+  "line": 0.0779438391327858,
+  "one_in": 13.571428571428573,
+  "calibrator": "isotonic",
+  "test_at_line": {
+   "alerts": 4326,
+   "found": 608,
+   "precision": 0.14054553860379104,
+   "recall": 0.6359832635983264
+  },
+  "below_the_line_truth": {
+   "transfers_below": 858466,
+   "laundering_below": 348,
+   "one_in": 2466.8563218390805
+  },
+  "sampling_typical_error": {
+   "Simple random sample below the line": 314.003246931262,
+   "By score band, in proportion to band size": 320.78441320037626,
+   "By score band, planned on the tuning days": 200.58349487392118
+  },
+  "sampling_coverage": {
+   "Simple random sample below the line": 0.9668,
+   "By score band, in proportion to band size": 0.873,
+   "By score band, planned on the tuning days": 0.9058
+  }
+ },
+ "step_5_day_8": {
+  "alerts_version_1": 3332,
+  "alerts_expected": 1000.0,
+  "found_version_1": 304,
+  "share_of_alerts_whose_pair_paid_a_week_before": 0.7421968787515006,
+  "share_of_false_alerts_whose_pair_paid_a_week_before": 0.8120871862615587,
+  "alerts_version_2": 1148,
+  "found_version_2": 307
+ },
+ "step_5_version_2_first_portfolio_test_days": {
+  "found_at_1000_a_day_v1": 578,
+  "found_at_1000_a_day_v2": 607,
+  "laundering": 956
+ },
+ "step_5_second_portfolio_check": {
+  "day_8_alerts_v1": 1683,
+  "day_8_alerts_v2": 1075,
+  "found_a": 233,
+  "found_b": 283,
+  "laundering": 668,
+  "gain": 0.0748502994011976,
+  "gain_low": 0.04613041632358996,
+  "gain_high": 0.10426612973570203,
+  "wider_candidate_found": 232,
+  "wider_candidate_day_8_alerts": 2268
+ },
+ "step_5_carried_over": {
+  "found_a": 263,
+  "found_b": 283,
+  "gain": 0.029940119760479042,
+  "gain_low": -0.00287027338812618,
+  "gain_high": 0.06461870503597124
+ },
+ "step_5_retraining": {
+  "found_a": 607,
+  "found_b": 609,
+  "gain": 0.0020920502092050207,
+  "gain_low": -0.015334905132955733,
+  "gain_high": 0.018805830368780568
+ },
+ "step_7_reasons": {
+  "alerts": 2134,
+  "laundering_among_them": 616
+ },
+ "step_6_published_protocol_f1_percent": {
+  "hi": {
+   "same_plain": {
+    "mean": 62.834375670257415,
+    "sd": 1.25740975148223,
+    "lowest": 61.54349247874428,
+    "highest": 64.21381464769176
+   },
+   "same": {
+    "mean": 65.16331210871161,
+    "sd": 0.5294653426031167,
+    "lowest": 64.52702702702703,
+    "highest": 65.94329716485824
+   },
+   "same_week": {
+    "mean": 65.58182158400666,
+    "sd": 1.5203879268533478,
+    "lowest": 63.03686168413933,
+    "highest": 66.8866886688669
+   },
+   "v2": {
+    "mean": 73.13809109000934,
+    "sd": 0.5881329907546051,
+    "lowest": 72.42549981139193,
+    "highest": 73.68421052631578
+   }
+  },
+  "li": {
+   "same_plain": {
+    "mean": 29.17522238448288,
+    "sd": 0.9267634422921102,
+    "lowest": 27.810650887573964,
+    "highest": 30.396475770925107
+   },
+   "same": {
+    "mean": 28.648955109480333,
+    "sd": 1.8198333779145364,
+    "lowest": 25.98509052183174,
+    "highest": 30.749185667752442
+   },
+   "same_week": {
+    "mean": 35.69973788906596,
+    "sd": 1.1634012236780513,
+    "lowest": 34.323922734026745,
+    "highest": 37.41610738255034
+   },
+   "v2": {
+    "mean": 39.27230277057198,
+    "sd": 0.797382417777671,
+    "lowest": 38.29416884247171,
+    "highest": 40.0355871886121
+   }
+  }
+ }
+}

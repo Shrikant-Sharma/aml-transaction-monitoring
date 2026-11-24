@@ -1,0 +1,1175 @@
+{
+ "rules_version": 1,
+ "budget": 1000,
+ "version_1": {
+  "features": 32,
+  "line": 0.07675914466381073,
+  "first_portfolio": [
+   {
+    "day": 6,
+    "transfers": 482751,
+    "alerts": 966,
+    "score_psi": 2.269194775907609e-06,
+    "largest_feature_psi": 2.9300409095042477e-05,
+    "feature_with_largest_psi": "hour",
+    "meaning": "time of day",
+    "laundering": 497,
+    "found": 330,
+    "precision": 0.3416149068322981,
+    "recall": 0.6639839034205232,
+    "queue_found": 331,
+    "queue_precision": 0.331,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "ok",
+     "precision": "ok"
+    }
+   },
+   {
+    "day": 7,
+    "transfers": 482773,
+    "alerts": 1034,
+    "score_psi": 2.269368595897794e-06,
+    "largest_feature_psi": 2.9104121406445306e-05,
+    "feature_with_largest_psi": "hour",
+    "meaning": "time of day",
+    "laundering": 539,
+    "found": 366,
+    "precision": 0.3539651837524178,
+    "recall": 0.6790352504638218,
+    "queue_found": 365,
+    "queue_precision": 0.365,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "ok",
+     "precision": "ok"
+    }
+   },
+   {
+    "day": 8,
+    "transfers": 654467,
+    "alerts": 2409,
+    "score_psi": 0.08096510202448506,
+    "largest_feature_psi": 0.4213766109036609,
+    "feature_with_largest_psi": "pair_before_3d",
+    "meaning": "transfers from this sender to this receiver on the 2 days before",
+    "laundering": 514,
+    "found": 303,
+    "precision": 0.12577833125778332,
+    "recall": 0.5894941634241245,
+    "queue_found": 277,
+    "queue_precision": 0.277,
+    "status": {
+     "feed": "ok",
+     "alert volume": "amber",
+     "score shift": "ok",
+     "feature shift": "red",
+     "precision": "amber"
+    }
+   },
+   {
+    "day": 9,
+    "transfers": 208325,
+    "alerts": 1019,
+    "score_psi": 0.09192420448503384,
+    "largest_feature_psi": 0.5577053740829062,
+    "feature_with_largest_psi": "s_recv_1d",
+    "meaning": "transfers the sender received today",
+    "laundering": 442,
+    "found": 307,
+    "precision": 0.3012757605495584,
+    "recall": 0.6945701357466063,
+    "queue_found": 305,
+    "queue_precision": 0.305,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "red",
+     "precision": "amber"
+    }
+   },
+   {
+    "day": 10,
+    "transfers": 396,
+    "alerts": 232,
+    "score_psi": 9.597029569133971,
+    "largest_feature_psi": 12.36910663314254,
+    "feature_with_largest_psi": "format",
+    "meaning": "payment format",
+    "laundering": 232,
+    "found": 215,
+    "precision": 0.9267241379310345,
+    "recall": 0.9267241379310345,
+    "queue_found": 232,
+    "queue_precision": 0.5858585858585859,
+    "status": {
+     "feed": "red",
+     "alert volume": "not read",
+     "score shift": "not read",
+     "feature shift": "not read",
+     "precision": "not read"
+    }
+   },
+   {
+    "day": 11,
+    "transfers": 281,
+    "alerts": 166,
+    "score_psi": 9.671667871023143,
+    "largest_feature_psi": 13.358587238450855,
+    "feature_with_largest_psi": "pair_count_3d",
+    "meaning": "transfers from this sender to this receiver in 3 days",
+    "laundering": 170,
+    "found": 158,
+    "precision": 0.9518072289156626,
+    "recall": 0.9294117647058824,
+    "queue_found": 170,
+    "queue_precision": 0.604982206405694,
+    "status": {
+     "feed": "red",
+     "alert volume": "not read",
+     "score shift": "not read",
+     "feature shift": "not read",
+     "precision": "not read"
+    }
+   },
+   {
+    "day": 12,
+    "transfers": 184,
+    "alerts": 103,
+    "score_psi": 9.570584071726586,
+    "largest_feature_psi": 14.075196877211848,
+    "feature_with_largest_psi": "pair_count_3d",
+    "meaning": "transfers from this sender to this receiver in 3 days",
+    "laundering": 106,
+    "found": 97,
+    "precision": 0.941747572815534,
+    "recall": 0.9150943396226415,
+    "queue_found": 106,
+    "queue_precision": 0.5760869565217391,
+    "status": {
+     "feed": "red",
+     "alert volume": "not read",
+     "score shift": "not read",
+     "feature shift": "not read",
+     "precision": "not read"
+    }
+   },
+   {
+    "day": 13,
+    "transfers": 121,
+    "alerts": 64,
+    "score_psi": 9.549960106747516,
+    "largest_feature_psi": 14.075196877211848,
+    "feature_with_largest_psi": "pair_count_3d",
+    "meaning": "transfers from this sender to this receiver in 3 days",
+    "laundering": 70,
+    "found": 60,
+    "precision": 0.9375,
+    "recall": 0.8571428571428571,
+    "queue_found": 70,
+    "queue_precision": 0.5785123966942148,
+    "status": {
+     "feed": "red",
+     "alert volume": "not read",
+     "score shift": "not read",
+     "feature shift": "not read",
+     "precision": "not read"
+    }
+   },
+   {
+    "day": 14,
+    "transfers": 46,
+    "alerts": 29,
+    "score_psi": 10.882746322591517,
+    "largest_feature_psi": 14.075196877211848,
+    "feature_with_largest_psi": "pair_count_3d",
+    "meaning": "transfers from this sender to this receiver in 3 days",
+    "laundering": 28,
+    "found": 28,
+    "precision": 0.9655172413793104,
+    "recall": 1.0,
+    "queue_found": 28,
+    "queue_precision": 0.6086956521739131,
+    "status": {
+     "feed": "red",
+     "alert volume": "not read",
+     "score shift": "not read",
+     "feature shift": "not read",
+     "precision": "not read"
+    }
+   },
+   {
+    "day": 15,
+    "transfers": 46,
+    "alerts": 26,
+    "score_psi": 10.616476253304372,
+    "largest_feature_psi": 14.152620259981514,
+    "feature_with_largest_psi": "r_recv_1d",
+    "meaning": "transfers the receiver got today",
+    "laundering": 26,
+    "found": 26,
+    "precision": 1.0,
+    "recall": 1.0,
+    "queue_found": 26,
+    "queue_precision": 0.5652173913043478,
+    "status": {
+     "feed": "red",
+     "alert volume": "not read",
+     "score shift": "not read",
+     "feature shift": "not read",
+     "precision": "not read"
+    }
+   },
+   {
+    "day": 16,
+    "transfers": 23,
+    "alerts": 13,
+    "score_psi": 10.593039558695246,
+    "largest_feature_psi": 14.152620259981514,
+    "feature_with_largest_psi": "r_recv_1d",
+    "meaning": "transfers the receiver got today",
+    "laundering": 15,
+    "found": 13,
+    "precision": 1.0,
+    "recall": 0.8666666666666667,
+    "queue_found": 15,
+    "queue_precision": 0.6521739130434783,
+    "status": {
+     "feed": "red",
+     "alert volume": "not read",
+     "score shift": "not read",
+     "feature shift": "not read",
+     "precision": "not read"
+    }
+   },
+   {
+    "day": 17,
+    "transfers": 11,
+    "alerts": 8,
+    "score_psi": 10.628115016717144,
+    "largest_feature_psi": 14.152620259981514,
+    "feature_with_largest_psi": "r_recv_1d",
+    "meaning": "transfers the receiver got today",
+    "laundering": 8,
+    "found": 8,
+    "precision": 1.0,
+    "recall": 1.0,
+    "queue_found": 8,
+    "queue_precision": 0.7272727272727273,
+    "status": {
+     "feed": "red",
+     "alert volume": "not read",
+     "score shift": "not read",
+     "feature shift": "not read",
+     "precision": "not read"
+    }
+   }
+  ],
+  "expected_against_seen": [
+   {
+    "day": 6,
+    "expected_in_alerts": 340.23635262875973,
+    "found": 330
+   },
+   {
+    "day": 7,
+    "expected_in_alerts": 359.1431022978651,
+    "found": 366
+   },
+   {
+    "day": 8,
+    "expected_in_alerts": 493.3236061865754,
+    "found": 303
+   },
+   {
+    "day": 9,
+    "expected_in_alerts": 304.3898712676605,
+    "found": 307
+   }
+  ]
+ },
+ "added_in_version_2": [
+  {
+   "feature": "pair_before_7d",
+   "meaning": "transfers from this sender to this receiver on the 7 days before"
+  }
+ ],
+ "tried_and_left_out": [
+  {
+   "feature": "s_sent_before_7d",
+   "meaning": "transfers the sender made on the 7 days before"
+  },
+  {
+   "feature": "r_recv_before_7d",
+   "meaning": "transfers the receiver got on the 7 days before"
+  }
+ ],
+ "left_out_of_the_feature_shift_check": [
+  "pair_before_7d",
+  "s_sent_before_7d",
+  "r_recv_before_7d"
+ ],
+ "reference": {
+  "median_training_day": 344759.5,
+  "alerts_per_day": 1000.0,
+  "precision_on_tuning_days": 0.348,
+  "precision_floor": 0.3274334124876774
+ },
+ "after_day_9": {
+  "transfers": 1108,
+  "laundering": 655,
+  "alerts": 641,
+  "found": 605
+ },
+ "what_the_alerts_share": [
+  {
+   "day": 7,
+   "alerts": 1034,
+   "by_ach": 1.0,
+   "no_transfer_on_the_2_days_before": 0.9680851063829787,
+   "pair_paid_exactly_a_week_before": 0.029980657640232108,
+   "pairs_seen_a_week_before": 31,
+   "sender_sent_nothing_in_the_3_days_before": 0.5841392649903289,
+   "false_alerts": 668,
+   "false_alerts_pair_paid_a_week_before": 0.02694610778443114
+  },
+  {
+   "day": 8,
+   "alerts": 2409,
+   "by_ach": 0.9991697799916978,
+   "no_transfer_on_the_2_days_before": 0.987546699875467,
+   "pair_paid_exactly_a_week_before": 0.6405147364051473,
+   "pairs_seen_a_week_before": 1543,
+   "sender_sent_nothing_in_the_3_days_before": 0.8082191780821918,
+   "false_alerts": 2106,
+   "false_alerts_pair_paid_a_week_before": 0.7264957264957265
+  },
+  {
+   "day": 9,
+   "alerts": 1019,
+   "by_ach": 1.0,
+   "no_transfer_on_the_2_days_before": 0.9764474975466143,
+   "pair_paid_exactly_a_week_before": 0.03925417075564279,
+   "pairs_seen_a_week_before": 40,
+   "sender_sent_nothing_in_the_3_days_before": 0.55053974484789,
+   "false_alerts": 712,
+   "false_alerts_pair_paid_a_week_before": 0.0449438202247191
+  }
+ ],
+ "version_2": {
+  "features": 33,
+  "trees": 118,
+  "line": 0.07923171669244766,
+  "calibrator": "isotonic",
+  "calibration_table": {
+   "none": {
+    "log_loss": 0.002737923951378435,
+    "brier": 0.0005139263366039328
+   },
+   "platt": {
+    "log_loss": 0.0027393699285814116,
+    "brier": 0.0005145692855070582
+   },
+   "isotonic": {
+    "log_loss": 0.0027255682512084376,
+    "brier": 0.0005103865211781458
+   }
+  },
+  "reference": {
+   "median_training_day": 344759.5,
+   "alerts_per_day": 1000.0,
+   "precision_on_tuning_days": 0.3455,
+   "precision_floor": 0.32497338010496
+  },
+  "tuning_days_v1_against_v2": {
+   "found_a": 696,
+   "found_b": 691,
+   "both": 672,
+   "only_a": 24,
+   "only_b": 19,
+   "laundering": 1036,
+   "schemes": 536,
+   "gain": -0.004826254826254826,
+   "gain_low": -0.017374517374517374,
+   "gain_high": 0.007483980245883173,
+   "mcnemar_p": 0.542384011856484
+  },
+  "tuning_days_v2_against_wider": {
+   "trees": 136,
+   "found_a": 691,
+   "found_b": 693,
+   "both": 671,
+   "only_a": 20,
+   "only_b": 22,
+   "laundering": 1036,
+   "schemes": 536,
+   "gain": 0.0019305019305019305,
+   "gain_low": -0.0101665937098702,
+   "gain_high": 0.013515481500918402,
+   "mcnemar_p": 0.8776143287523154
+  },
+  "wider_on_test_days": {
+   "line": 0.07996196299791336,
+   "by_day": [
+    {
+     "day": 6,
+     "transfers": 482751,
+     "laundering": 497,
+     "alerts": 959,
+     "found": 330,
+     "precision": 0.34410844629822734,
+     "queue_found": 334,
+     "queue_precision": 0.334
+    },
+    {
+     "day": 7,
+     "transfers": 482773,
+     "laundering": 539,
+     "alerts": 1041,
+     "found": 360,
+     "precision": 0.345821325648415,
+     "queue_found": 359,
+     "queue_precision": 0.359
+    },
+    {
+     "day": 8,
+     "transfers": 654467,
+     "laundering": 514,
+     "alerts": 1666,
+     "found": 306,
+     "precision": 0.1836734693877551,
+     "queue_found": 286,
+     "queue_precision": 0.286
+    },
+    {
+     "day": 9,
+     "transfers": 208325,
+     "laundering": 442,
+     "alerts": 985,
+     "found": 309,
+     "precision": 0.31370558375634516,
+     "queue_found": 310,
+     "queue_precision": 0.31
+    }
+   ],
+   "found_a": 589,
+   "found_b": 596,
+   "both": 573,
+   "only_a": 16,
+   "only_b": 23,
+   "laundering": 956,
+   "schemes": 545,
+   "gain": 0.007322175732217573,
+   "gain_low": -0.005303218270477019,
+   "gain_high": 0.020649806444527827,
+   "mcnemar_p": 0.3367836351899315
+  },
+  "first_portfolio_v1": [
+   {
+    "day": 6,
+    "transfers": 482751,
+    "laundering": 497,
+    "alerts": 966,
+    "found": 330,
+    "precision": 0.3416149068322981,
+    "queue_found": 331,
+    "queue_precision": 0.331
+   },
+   {
+    "day": 7,
+    "transfers": 482773,
+    "laundering": 539,
+    "alerts": 1034,
+    "found": 366,
+    "precision": 0.3539651837524178,
+    "queue_found": 365,
+    "queue_precision": 0.365
+   },
+   {
+    "day": 8,
+    "transfers": 654467,
+    "laundering": 514,
+    "alerts": 2409,
+    "found": 303,
+    "precision": 0.12577833125778332,
+    "queue_found": 277,
+    "queue_precision": 0.277
+   },
+   {
+    "day": 9,
+    "transfers": 208325,
+    "laundering": 442,
+    "alerts": 1019,
+    "found": 307,
+    "precision": 0.3012757605495584,
+    "queue_found": 305,
+    "queue_precision": 0.305
+   }
+  ],
+  "first_portfolio_v2": [
+   {
+    "day": 6,
+    "transfers": 482751,
+    "laundering": 497,
+    "alerts": 989,
+    "found": 332,
+    "precision": 0.3356926188068756,
+    "queue_found": 332,
+    "queue_precision": 0.332
+   },
+   {
+    "day": 7,
+    "transfers": 482773,
+    "laundering": 539,
+    "alerts": 1011,
+    "found": 359,
+    "precision": 0.35509396636993074,
+    "queue_found": 359,
+    "queue_precision": 0.359
+   },
+   {
+    "day": 8,
+    "transfers": 654467,
+    "laundering": 514,
+    "alerts": 1829,
+    "found": 300,
+    "precision": 0.16402405686167304,
+    "queue_found": 284,
+    "queue_precision": 0.284
+   },
+   {
+    "day": 9,
+    "transfers": 208325,
+    "laundering": 442,
+    "alerts": 958,
+    "found": 304,
+    "precision": 0.3173277661795407,
+    "queue_found": 305,
+    "queue_precision": 0.305
+   }
+  ],
+  "first_portfolio_watch": [
+   {
+    "day": 6,
+    "transfers": 482751,
+    "alerts": 989,
+    "score_psi": 0.001242784643458835,
+    "largest_feature_psi": 2.9300409095042477e-05,
+    "feature_with_largest_psi": "hour",
+    "meaning": "time of day",
+    "laundering": 497,
+    "found": 332,
+    "precision": 0.3356926188068756,
+    "recall": 0.6680080482897385,
+    "queue_found": 332,
+    "queue_precision": 0.332,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "ok",
+     "precision": "ok"
+    }
+   },
+   {
+    "day": 7,
+    "transfers": 482773,
+    "alerts": 1011,
+    "score_psi": 0.0012972737152014057,
+    "largest_feature_psi": 2.9104121406445306e-05,
+    "feature_with_largest_psi": "hour",
+    "meaning": "time of day",
+    "laundering": 539,
+    "found": 359,
+    "precision": 0.35509396636993074,
+    "recall": 0.6660482374768089,
+    "queue_found": 359,
+    "queue_precision": 0.359,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "ok",
+     "precision": "ok"
+    }
+   },
+   {
+    "day": 8,
+    "transfers": 654467,
+    "alerts": 1829,
+    "score_psi": 0.14948885813755147,
+    "largest_feature_psi": 0.4213766109036609,
+    "feature_with_largest_psi": "pair_before_3d",
+    "meaning": "transfers from this sender to this receiver on the 2 days before",
+    "laundering": 514,
+    "found": 300,
+    "precision": 0.16402405686167304,
+    "recall": 0.5836575875486382,
+    "queue_found": 284,
+    "queue_precision": 0.284,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "amber",
+     "feature shift": "red",
+     "precision": "amber"
+    }
+   },
+   {
+    "day": 9,
+    "transfers": 208325,
+    "alerts": 958,
+    "score_psi": 0.07704451013431034,
+    "largest_feature_psi": 0.5577053740829062,
+    "feature_with_largest_psi": "s_recv_1d",
+    "meaning": "transfers the sender received today",
+    "laundering": 442,
+    "found": 304,
+    "precision": 0.3173277661795407,
+    "recall": 0.6877828054298643,
+    "queue_found": 305,
+    "queue_precision": 0.305,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "red",
+     "precision": "amber"
+    }
+   }
+  ],
+  "test_days_v1_against_v2": {
+   "found_a": 582,
+   "found_b": 589,
+   "both": 566,
+   "only_a": 16,
+   "only_b": 23,
+   "laundering": 956,
+   "schemes": 545,
+   "gain": 0.007322175732217573,
+   "gain_low": -0.005307996642682605,
+   "gain_high": 0.02029327344645834,
+   "mcnemar_p": 0.3367836351899315
+  },
+  "test_days_at_line": {
+   "alerts": 2787,
+   "found": 604,
+   "laundering": 956,
+   "precision": 0.2167204879799067,
+   "precision_low": 0.2018196113410171,
+   "precision_high": 0.23240120583397944,
+   "recall": 0.6317991631799164,
+   "recall_low": 0.5833261741122566,
+   "recall_high": 0.6757319962608864,
+   "alerts_per_day": 1393.5
+  },
+  "test_days_as_a_daily_queue": {
+   "alerts": 2000,
+   "found": 589,
+   "laundering": 956,
+   "precision": 0.2945,
+   "precision_low": 0.27493249937321573,
+   "precision_high": 0.31485540707178516,
+   "recall": 0.6161087866108786,
+   "recall_low": 0.5654913411497279,
+   "recall_high": 0.6605463187179655
+  },
+  "average_precision": {
+   "v1_tuning": 0.6485287019158282,
+   "v2_tuning": 0.6550154006250792,
+   "v1_test": 0.5673308134174047,
+   "v2_test": 0.5844409871953491
+  },
+  "expected_against_seen": [
+   {
+    "day": 6,
+    "expected_in_alerts": 342.18626029352566,
+    "found": 332
+   },
+   {
+    "day": 7,
+    "expected_in_alerts": 353.16199841294195,
+    "found": 359
+   },
+   {
+    "day": 8,
+    "expected_in_alerts": 408.50282474739214,
+    "found": 300
+   },
+   {
+    "day": 9,
+    "expected_in_alerts": 289.44027025787784,
+    "found": 304
+   }
+  ]
+ },
+ "retraining": {
+  "trained_on": "days 2 to 7",
+  "trained_on_transfers": 2345075,
+  "trained_on_laundering": 2836,
+  "average_precision_frozen": 0.5844409871953491,
+  "average_precision_retrained": 0.5918856507930049,
+  "found_a": 589,
+  "found_b": 593,
+  "both": 566,
+  "only_a": 23,
+  "only_b": 27,
+  "laundering": 956,
+  "schemes": 545,
+  "gain": 0.0041841004184100415,
+  "gain_low": -0.009990816533132791,
+  "gain_high": 0.018592231863906343,
+  "mcnemar_p": 0.6718110337653656
+ },
+ "second_portfolio_size": {
+  "transfers": 6924049,
+  "laundering": 3565,
+  "one_in": 1942,
+  "training": {
+   "transfers": 1880369,
+   "laundering": 1333
+  },
+  "tuning": {
+   "transfers": 1316442,
+   "laundering": 770
+  },
+  "test": {
+   "transfers": 1174450,
+   "laundering": 668
+  }
+ },
+ "second_portfolio_check": {
+  "trees": {
+   "v1": 94,
+   "v2": 60,
+   "wider": 59
+  },
+  "lines": {
+   "v1": 0.07171829789876938,
+   "v2": 0.07601408660411835,
+   "wider": 0.07649485021829605
+  },
+  "v1_by_day": [
+   {
+    "day": 6,
+    "transfers": 658504,
+    "laundering": 368,
+    "alerts": 1007,
+    "found": 153,
+    "precision": 0.1519364448857994,
+    "queue_found": 153,
+    "queue_precision": 0.153
+   },
+   {
+    "day": 7,
+    "transfers": 657938,
+    "laundering": 402,
+    "alerts": 993,
+    "found": 174,
+    "precision": 0.17522658610271905,
+    "queue_found": 174,
+    "queue_precision": 0.174
+   },
+   {
+    "day": 8,
+    "transfers": 891573,
+    "laundering": 367,
+    "alerts": 1561,
+    "found": 145,
+    "precision": 0.09288917360666239,
+    "queue_found": 114,
+    "queue_precision": 0.114
+   },
+   {
+    "day": 9,
+    "transfers": 282877,
+    "laundering": 301,
+    "alerts": 1008,
+    "found": 136,
+    "precision": 0.1349206349206349,
+    "queue_found": 135,
+    "queue_precision": 0.135
+   }
+  ],
+  "v2_by_day": [
+   {
+    "day": 6,
+    "transfers": 658504,
+    "laundering": 368,
+    "alerts": 1021,
+    "found": 155,
+    "precision": 0.15181194906953965,
+    "queue_found": 153,
+    "queue_precision": 0.153
+   },
+   {
+    "day": 7,
+    "transfers": 657938,
+    "laundering": 402,
+    "alerts": 979,
+    "found": 166,
+    "precision": 0.16956077630234934,
+    "queue_found": 168,
+    "queue_precision": 0.168
+   },
+   {
+    "day": 8,
+    "transfers": 891573,
+    "laundering": 367,
+    "alerts": 1646,
+    "found": 143,
+    "precision": 0.08687727825030377,
+    "queue_found": 107,
+    "queue_precision": 0.107
+   },
+   {
+    "day": 9,
+    "transfers": 282877,
+    "laundering": 301,
+    "alerts": 913,
+    "found": 136,
+    "precision": 0.14895947426067907,
+    "queue_found": 145,
+    "queue_precision": 0.145
+   }
+  ],
+  "test_days_v1_against_v2": {
+   "found_a": 249,
+   "found_b": 252,
+   "both": 225,
+   "only_a": 24,
+   "only_b": 27,
+   "laundering": 668,
+   "schemes": 539,
+   "gain": 0.004491017964071856,
+   "gain_low": -0.016345333174131466,
+   "gain_high": 0.025720559505416688,
+   "mcnemar_p": 0.7797679305530743
+  },
+  "tuning_days_v1_against_v2": {
+   "found_a": 327,
+   "found_b": 321,
+   "both": 290,
+   "only_a": 37,
+   "only_b": 31,
+   "laundering": 770,
+   "schemes": 604,
+   "gain": -0.007792207792207792,
+   "gain_low": -0.02884645545796738,
+   "gain_high": 0.012706884455092455,
+   "mcnemar_p": 0.5446122234192592
+  },
+  "tuning_days_v2_against_wider": {
+   "found_a": 321,
+   "found_b": 317,
+   "both": 289,
+   "only_a": 32,
+   "only_b": 28,
+   "laundering": 770,
+   "schemes": 604,
+   "gain": -0.005194805194805195,
+   "gain_low": -0.024327784891165175,
+   "gain_high": 0.014436169772470952,
+   "mcnemar_p": 0.6988834276200058
+  },
+  "wider_on_test_days": {
+   "by_day": [
+    {
+     "day": 6,
+     "transfers": 658504,
+     "laundering": 368,
+     "alerts": 1015,
+     "found": 149,
+     "precision": 0.14679802955665025,
+     "queue_found": 149,
+     "queue_precision": 0.149
+    },
+    {
+     "day": 7,
+     "transfers": 657938,
+     "laundering": 402,
+     "alerts": 985,
+     "found": 167,
+     "precision": 0.16954314720812183,
+     "queue_found": 168,
+     "queue_precision": 0.168
+    },
+    {
+     "day": 8,
+     "transfers": 891573,
+     "laundering": 367,
+     "alerts": 1868,
+     "found": 134,
+     "precision": 0.07173447537473233,
+     "queue_found": 96,
+     "queue_precision": 0.096
+    },
+    {
+     "day": 9,
+     "transfers": 282877,
+     "laundering": 301,
+     "alerts": 928,
+     "found": 125,
+     "precision": 0.13469827586206898,
+     "queue_found": 132,
+     "queue_precision": 0.132
+    }
+   ],
+   "against_v1": {
+    "found_a": 249,
+    "found_b": 228,
+    "both": 201,
+    "only_a": 48,
+    "only_b": 27,
+    "laundering": 668,
+    "schemes": 539,
+    "gain": -0.03143712574850299,
+    "gain_low": -0.057101911460817036,
+    "gain_high": -0.007288364503630521,
+    "mcnemar_p": 0.02029840699010744
+   },
+   "against_v2": {
+    "found_a": 252,
+    "found_b": 228,
+    "both": 214,
+    "only_a": 38,
+    "only_b": 14,
+    "laundering": 668,
+    "schemes": 539,
+    "gain": -0.03592814371257485,
+    "gain_low": -0.058037876570151165,
+    "gain_high": -0.014858289866446795,
+    "mcnemar_p": 0.0011951203200073481
+   }
+  },
+  "average_precision_on_test_days": {
+   "v1": 0.23774949748386276,
+   "v2": 0.23734733567541208
+  },
+  "test_days_at_line": {
+   "v1": {
+    "alerts": 2569,
+    "found": 281,
+    "laundering": 668,
+    "precision": 0.10938108213312572,
+    "precision_low": 0.09788989876428886,
+    "precision_high": 0.12203871631925811,
+    "recall": 0.42065868263473055,
+    "recall_low": 0.3636328180399943,
+    "recall_high": 0.47546547181705984,
+    "alerts_per_day": 1284.5
+   },
+   "v2": {
+    "alerts": 2559,
+    "found": 279,
+    "laundering": 668,
+    "precision": 0.10902696365767878,
+    "precision_low": 0.09753213026537436,
+    "precision_high": 0.12169386084472147,
+    "recall": 0.4176646706586826,
+    "recall_low": 0.35864297253634897,
+    "recall_high": 0.47420811800499174,
+    "alerts_per_day": 1279.5
+   }
+  },
+  "v2_by_kind": {
+   "in_a_labeled_scheme": {
+    "laundering": 184,
+    "found": 155
+   },
+   "not_in_a_labeled_scheme": {
+    "laundering": 484,
+    "found": 97
+   }
+  }
+ },
+ "carried_over": {
+  "watch": [
+   {
+    "day": 6,
+    "transfers": 658504,
+    "alerts": 1068,
+    "score_psi": 0.001231514200250906,
+    "largest_feature_psi": 0.05686032674309639,
+    "feature_with_largest_psi": "currency",
+    "meaning": "currency",
+    "laundering": 368,
+    "found": 148,
+    "precision": 0.13857677902621723,
+    "recall": 0.40217391304347827,
+    "queue_found": 142,
+    "queue_precision": 0.142,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "ok",
+     "precision": "amber"
+    }
+   },
+   {
+    "day": 7,
+    "transfers": 657938,
+    "alerts": 1052,
+    "score_psi": 0.005238163731569632,
+    "largest_feature_psi": 0.05659431446827723,
+    "feature_with_largest_psi": "currency",
+    "meaning": "currency",
+    "laundering": 402,
+    "found": 169,
+    "precision": 0.16064638783269963,
+    "recall": 0.42039800995024873,
+    "queue_found": 168,
+    "queue_precision": 0.168,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "ok",
+     "precision": "amber"
+    }
+   },
+   {
+    "day": 8,
+    "transfers": 891573,
+    "alerts": 2236,
+    "score_psi": 0.16073538596975134,
+    "largest_feature_psi": 0.4179796283415396,
+    "feature_with_largest_psi": "pair_before_3d",
+    "meaning": "transfers from this sender to this receiver on the 2 days before",
+    "laundering": 367,
+    "found": 136,
+    "precision": 0.06082289803220036,
+    "recall": 0.37057220708446864,
+    "queue_found": 109,
+    "queue_precision": 0.109,
+    "status": {
+     "feed": "ok",
+     "alert volume": "amber",
+     "score shift": "amber",
+     "feature shift": "red",
+     "precision": "amber"
+    }
+   },
+   {
+    "day": 9,
+    "transfers": 282877,
+    "alerts": 1065,
+    "score_psi": 0.09004406691668233,
+    "largest_feature_psi": 0.5552181921644604,
+    "feature_with_largest_psi": "s_recv_1d",
+    "meaning": "transfers the sender received today",
+    "laundering": 301,
+    "found": 140,
+    "precision": 0.13145539906103287,
+    "recall": 0.46511627906976744,
+    "queue_found": 134,
+    "queue_precision": 0.134,
+    "status": {
+     "feed": "ok",
+     "alert volume": "ok",
+     "score shift": "ok",
+     "feature shift": "red",
+     "precision": "amber"
+    }
+   }
+  ],
+  "largest_feature_shifts": [
+   {
+    "feature": "currency",
+    "meaning": "currency",
+    "psi": 0.056726683089451384
+   },
+   {
+    "feature": "receiver_owner_accounts",
+    "meaning": "number of accounts the receiver's owner holds",
+    "psi": 0.025872843321281484
+   },
+   {
+    "feature": "sender_owner_accounts",
+    "meaning": "number of accounts the sender's owner holds",
+    "psi": 0.009682204952700247
+   },
+   {
+    "feature": "sender_type",
+    "meaning": "sender's customer type",
+    "psi": 0.004227569193830669
+   },
+   {
+    "feature": "amount_log",
+    "meaning": "size of the transfer",
+    "psi": 0.002063770179017066
+   },
+   {
+    "feature": "format",
+    "meaning": "payment format",
+    "psi": 0.0014326369127059292
+   }
+  ],
+  "options": [
+   {
+    "option": "Trained on the first portfolio, old line",
+    "line": 0.07923171669244766,
+    "average_precision": 0.25515538544726296,
+    "alerts": 3301,
+    "found": 276,
+    "laundering": 668,
+    "precision": 0.08361102696152681,
+    "precision_low": 0.07464539439971579,
+    "precision_high": 0.0935446582237014,
+    "recall": 0.41317365269461076,
+    "recall_low": 0.35321369927281254,
+    "recall_high": 0.47123326096562856,
+    "alerts_per_day": 1650.5
+   },
+   {
+    "option": "Trained on the first portfolio, line re-set on the second",
+    "line": 0.0824294313788414,
+    "average_precision": 0.25515538544726296,
+    "alerts": 3085,
+    "found": 267,
+    "laundering": 668,
+    "precision": 0.08654781199351702,
+    "precision_low": 0.0771330302154963,
+    "precision_high": 0.09699097907441048,
+    "recall": 0.3997005988023952,
+    "recall_low": 0.3396517034784941,
+    "recall_high": 0.4586317492698979,
+    "alerts_per_day": 1542.5
+   },
+   {
+    "option": "Trained on the second portfolio, its own line",
+    "line": 0.07601408660411835,
+    "average_precision": 0.23734733567541208,
+    "alerts": 2559,
+    "found": 279,
+    "laundering": 668,
+    "precision": 0.10902696365767878,
+    "precision_low": 0.09753213026537436,
+    "precision_high": 0.12169386084472147,
+    "recall": 0.4176646706586826,
+    "recall_low": 0.35864297253634897,
+    "recall_high": 0.47420811800499174,
+    "alerts_per_day": 1279.5
+   }
+  ],
+  "same_alerts_carried_against_local": {
+   "found_a": 243,
+   "found_b": 252,
+   "both": 192,
+   "only_a": 51,
+   "only_b": 60,
+   "laundering": 668,
+   "schemes": 539,
+   "gain": 0.01347305389221557,
+   "gain_low": -0.01712334265829273,
+   "gain_high": 0.045961899406252976,
+   "mcnemar_p": 0.4478061321437484
+  }
+ }
+}

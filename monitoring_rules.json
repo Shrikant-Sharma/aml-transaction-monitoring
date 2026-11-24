@@ -1,0 +1,51 @@
+{
+ "version": 1,
+ "written": "2026-11-22, before step 5 was first run, but not blind: step 4 had already shown the alert count of day 8, and its cause had been looked into. The limits are the usual round numbers and have not changed since step 5 first ran.",
+ "reference": "The tuning days (6 and 7): the days the alert line was set on, and the latest days with a full week of history behind them.",
+ "checked_in_this_order": [
+  {
+   "name": "feed",
+   "watch": "transfers received in the day",
+   "compare_with": "the median training day",
+   "red_below": 0.3,
+   "red_above": 3.0,
+   "action": "Stop. Publish no alerts for the day and call the data owner. The other checks are not read."
+  },
+  {
+   "name": "alert volume",
+   "watch": "alerts at the fixed line",
+   "compare_with": "alerts a day on the tuning days",
+   "amber_below": 0.5,
+   "amber_above": 2.0,
+   "action": "Find out what the extra alerts have in common before the queue is worked."
+  },
+  {
+   "name": "score shift",
+   "watch": "population stability index of the model score",
+   "compare_with": "the tuning days",
+   "amber_above": 0.1,
+   "red_above": 0.25,
+   "action": "Amber: watch. Red: review the model before relying on the line."
+  },
+  {
+   "name": "feature shift",
+   "watch": "the largest population stability index among the model's features",
+   "compare_with": "the tuning days",
+   "amber_above": 0.1,
+   "red_above": 0.25,
+   "action": "Amber: watch. Red: find the feature and its source."
+  },
+  {
+   "name": "precision",
+   "watch": "precision of the day's alerts, once reviewers have worked them",
+   "compare_with": "the lower end of the 95% interval for precision on the tuning days",
+   "amber_below": 1.0,
+   "action": "Review what was missed and what was flagged. Two days in a row: revalidate."
+  }
+ ],
+ "revalidate_when": [
+  "a new portfolio, product or channel is scored",
+  "any red on two days in a row",
+  "precision amber on two days in a row"
+ ]
+}

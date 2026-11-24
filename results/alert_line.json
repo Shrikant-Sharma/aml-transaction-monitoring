@@ -1,0 +1,738 @@
+{
+ "model": "behavior",
+ "version": 1,
+ "main_budget": 1000,
+ "tuning_days": [
+  6,
+  7
+ ],
+ "test_days": [
+  8,
+  9
+ ],
+ "calibration": {
+  "fitted_on_one_tuning_day_checked_on_the_other": {
+   "none": {
+    "log_loss": 0.0027628704418237292,
+    "brier": 0.0005224512163585495
+   },
+   "platt": {
+    "log_loss": 0.0027646885162749446,
+    "brier": 0.0005232445745879937
+   },
+   "isotonic": {
+    "log_loss": 0.002736905411326285,
+    "brier": 0.0005208247955130871
+   }
+  },
+  "kept": "isotonic",
+  "test_days_raw": {
+   "brier": 0.0006370460901976532,
+   "log_loss": 0.003667145931419167,
+   "mean_probability": 0.001699751589685995,
+   "true_rate": 0.0011080306725143488
+  },
+  "test_days_kept": {
+   "brier": 0.0006290090032417412,
+   "log_loss": 0.0036314586483335415,
+   "mean_probability": 0.0017500255906075985,
+   "true_rate": 0.0011080306725143488
+  },
+  "by_test_day": [
+   {
+    "day": 8,
+    "expected": 1083.2836184991625,
+    "laundering": 514
+   },
+   {
+    "day": 9,
+    "expected": 426.5597649723487,
+    "laundering": 442
+   }
+  ],
+  "reliability": {
+   "tuning": [
+    {
+     "from": 0,
+     "to": 0.001,
+     "transfers": 841560,
+     "expected": 5.000000000000001,
+     "laundering": 5
+    },
+    {
+     "from": 0.001,
+     "to": 0.01,
+     "transfers": 117442,
+     "expected": 176.0,
+     "laundering": 176
+    },
+    {
+     "from": 0.01,
+     "to": 0.05,
+     "transfers": 3727,
+     "expected": 107.0,
+     "laundering": 107
+    },
+    {
+     "from": 0.05,
+     "to": 0.2,
+     "transfers": 2076,
+     "expected": 172.0,
+     "laundering": 172
+    },
+    {
+     "from": 0.2,
+     "to": 0.5,
+     "transfers": 145,
+     "expected": 43.00000000000001,
+     "laundering": 43
+    },
+    {
+     "from": 0.5,
+     "to": 0.8,
+     "transfers": 60,
+     "expected": 32.0,
+     "laundering": 32
+    },
+    {
+     "from": 0.8,
+     "to": 1.0,
+     "transfers": 514,
+     "expected": 501.0,
+     "laundering": 501
+    }
+   ],
+   "test": [
+    {
+     "from": 0,
+     "to": 0.001,
+     "transfers": 699669,
+     "expected": 10.467772594240312,
+     "laundering": 20
+    },
+    {
+     "from": 0.001,
+     "to": 0.01,
+     "transfers": 144507,
+     "expected": 216.41589777623062,
+     "laundering": 133
+    },
+    {
+     "from": 0.01,
+     "to": 0.05,
+     "transfers": 13413,
+     "expected": 376.6705142785389,
+     "laundering": 140
+    },
+    {
+     "from": 0.05,
+     "to": 0.2,
+     "transfers": 4467,
+     "expected": 366.8289065027558,
+     "laundering": 165
+    },
+    {
+     "from": 0.2,
+     "to": 0.5,
+     "transfers": 220,
+     "expected": 67.55507373979742,
+     "laundering": 45
+    },
+    {
+     "from": 0.5,
+     "to": 0.8,
+     "transfers": 65,
+     "expected": 35.33975656223878,
+     "laundering": 30
+    },
+    {
+     "from": 0.8,
+     "to": 1.0,
+     "transfers": 451,
+     "expected": 436.5654620177092,
+     "laundering": 423
+    }
+   ]
+  }
+ },
+ "line": {
+  "line": 0.07675914466381073,
+  "probability_at_line": 0.06708595387840671,
+  "one_in": 14.90625,
+  "by_budget": [
+   {
+    "alerts_per_day_on_tuning_days": 250,
+    "line": 0.6289322376251221,
+    "probability_at_line": 0.8181818181818182,
+    "tune": {
+     "alerts": 500,
+     "found": 489,
+     "laundering": 1036,
+     "precision": 0.978,
+     "precision_low": 0.9610391386195835,
+     "precision_high": 0.9876719917850619,
+     "recall": 0.472007722007722
+    },
+    "test": {
+     "alerts": 436,
+     "found": 413,
+     "laundering": 956,
+     "precision": 0.9472477064220184,
+     "precision_low": 0.9220888400903839,
+     "precision_high": 0.964594286579703,
+     "recall": 0.4320083682008368
+    },
+    "test_alerts_per_day": 218.0
+   },
+   {
+    "alerts_per_day_on_tuning_days": 500,
+    "line": 0.14623083174228668,
+    "probability_at_line": 0.12337662337662338,
+    "tune": {
+     "alerts": 1000,
+     "found": 610,
+     "laundering": 1036,
+     "precision": 0.61,
+     "precision_low": 0.5794035192590353,
+     "precision_high": 0.639754593860912,
+     "recall": 0.5888030888030888
+    },
+    "test": {
+     "alerts": 1339,
+     "found": 533,
+     "laundering": 956,
+     "precision": 0.39805825242718446,
+     "precision_low": 0.37216724997852113,
+     "precision_high": 0.424532503224338,
+     "recall": 0.5575313807531381
+    },
+    "test_alerts_per_day": 669.5
+   },
+   {
+    "alerts_per_day_on_tuning_days": 1000,
+    "line": 0.07675914466381073,
+    "probability_at_line": 0.06708595387840671,
+    "tune": {
+     "alerts": 2000,
+     "found": 696,
+     "laundering": 1036,
+     "precision": 0.348,
+     "precision_low": 0.3274334124876774,
+     "precision_high": 0.36914936989499963,
+     "recall": 0.6718146718146718
+    },
+    "test": {
+     "alerts": 3428,
+     "found": 610,
+     "laundering": 956,
+     "precision": 0.1779463243873979,
+     "precision_low": 0.1655055978075385,
+     "precision_high": 0.19110803762544595,
+     "recall": 0.6380753138075314
+    },
+    "test_alerts_per_day": 1714.0
+   },
+   {
+    "alerts_per_day_on_tuning_days": 2000,
+    "line": 0.02981323003768921,
+    "probability_at_line": 0.02631578947368421,
+    "tune": {
+     "alerts": 4000,
+     "found": 803,
+     "laundering": 1036,
+     "precision": 0.20075,
+     "precision_low": 0.1886264497409131,
+     "precision_high": 0.21344777707702342,
+     "recall": 0.775096525096525
+    },
+    "test": {
+     "alerts": 9169,
+     "found": 744,
+     "laundering": 956,
+     "precision": 0.08114298178645436,
+     "precision_low": 0.07572777968055273,
+     "precision_high": 0.08690900692136448,
+     "recall": 0.7782426778242678
+    },
+    "test_alerts_per_day": 4584.5
+   },
+   {
+    "alerts_per_day_on_tuning_days": 5000,
+    "line": 0.005350168794393539,
+    "probability_at_line": 0.002803976548559776,
+    "tune": {
+     "alerts": 10000,
+     "found": 869,
+     "laundering": 1036,
+     "precision": 0.0869,
+     "precision_low": 0.08153641854663485,
+     "precision_high": 0.09258084091222127,
+     "recall": 0.8388030888030888
+    },
+    "test": {
+     "alerts": 25309,
+     "found": 825,
+     "laundering": 956,
+     "precision": 0.03259709984590462,
+     "precision_low": 0.030479268266450702,
+     "precision_high": 0.03485679689114255,
+     "recall": 0.8629707112970711
+    },
+    "test_alerts_per_day": 12654.5
+   }
+  ],
+  "by_cost": [
+   {
+    "reviews_one_miss_is_worth": 5,
+    "alert_when_probability_at_least": 0.2,
+    "tune": {
+     "alerts": 719,
+     "found": 576,
+     "laundering": 1036,
+     "precision": 0.8011126564673157,
+     "precision_low": 0.7703695356815052,
+     "precision_high": 0.8286553191879586,
+     "recall": 0.555984555984556
+    },
+    "test": {
+     "alerts": 736,
+     "found": 498,
+     "laundering": 956,
+     "precision": 0.6766304347826086,
+     "precision_low": 0.6419950886292438,
+     "precision_high": 0.7094315540370679,
+     "recall": 0.5209205020920502
+    },
+    "tune_alerts_per_day": 359.5,
+    "test_alerts_per_day": 368.0
+   },
+   {
+    "reviews_one_miss_is_worth": 10,
+    "alert_when_probability_at_least": 0.1,
+    "tune": {
+     "alerts": 1142,
+     "found": 629,
+     "laundering": 1036,
+     "precision": 0.5507880910683012,
+     "precision_low": 0.5218165740394582,
+     "precision_high": 0.5794190716957315,
+     "recall": 0.6071428571428571
+    },
+    "test": {
+     "alerts": 1599,
+     "found": 545,
+     "laundering": 956,
+     "precision": 0.34083802376485306,
+     "precision_low": 0.3180118082537594,
+     "precision_high": 0.3644271521439477,
+     "recall": 0.5700836820083682
+    },
+    "tune_alerts_per_day": 571.0,
+    "test_alerts_per_day": 799.5
+   },
+   {
+    "reviews_one_miss_is_worth": 20,
+    "alert_when_probability_at_least": 0.05,
+    "tune": {
+     "alerts": 2795,
+     "found": 748,
+     "laundering": 1036,
+     "precision": 0.26762075134168156,
+     "precision_low": 0.2515349710749499,
+     "precision_high": 0.2843444207791305,
+     "recall": 0.722007722007722
+    },
+    "test": {
+     "alerts": 5203,
+     "found": 663,
+     "laundering": 956,
+     "precision": 0.12742648472035364,
+     "precision_low": 0.11864003409840519,
+     "precision_high": 0.1367626835343718,
+     "recall": 0.6935146443514645
+    },
+    "tune_alerts_per_day": 1397.5,
+    "test_alerts_per_day": 2601.5
+   },
+   {
+    "reviews_one_miss_is_worth": 50,
+    "alert_when_probability_at_least": 0.02,
+    "tune": {
+     "alerts": 5843,
+     "found": 845,
+     "laundering": 1036,
+     "precision": 0.1446174910148896,
+     "precision_low": 0.135832703978067,
+     "precision_high": 0.15386926088509287,
+     "recall": 0.8156370656370656
+    },
+    "test": {
+     "alerts": 16379,
+     "found": 797,
+     "laundering": 956,
+     "precision": 0.04865986934489285,
+     "precision_low": 0.04546936896082805,
+     "precision_high": 0.05206203075952333,
+     "recall": 0.8336820083682008
+    },
+    "tune_alerts_per_day": 2921.5,
+    "test_alerts_per_day": 8189.5
+   },
+   {
+    "reviews_one_miss_is_worth": 100,
+    "alert_when_probability_at_least": 0.01,
+    "tune": {
+     "alerts": 6522,
+     "found": 855,
+     "laundering": 1036,
+     "precision": 0.1310947562097516,
+     "precision_low": 0.12312045255701132,
+     "precision_high": 0.139503374527978,
+     "recall": 0.8252895752895753
+    },
+    "test": {
+     "alerts": 18616,
+     "found": 803,
+     "laundering": 956,
+     "precision": 0.043134937688010314,
+     "precision_low": 0.04030957251822439,
+     "precision_high": 0.04614881448986872,
+     "recall": 0.8399581589958159
+    },
+    "tune_alerts_per_day": 3261.0,
+    "test_alerts_per_day": 9308.0
+   },
+   {
+    "reviews_one_miss_is_worth": 200,
+    "alert_when_probability_at_least": 0.005,
+    "tune": {
+     "alerts": 8481,
+     "found": 868,
+     "laundering": 1036,
+     "precision": 0.10234642141256928,
+     "precision_low": 0.09607457941663879,
+     "precision_high": 0.10897833374771508,
+     "recall": 0.8378378378378378
+    },
+    "test": {
+     "alerts": 23063,
+     "found": 816,
+     "laundering": 956,
+     "precision": 0.035381346745870006,
+     "precision_low": 0.03307339698249894,
+     "precision_high": 0.03784404794802306,
+     "recall": 0.8535564853556485
+    },
+    "tune_alerts_per_day": 4240.5,
+    "test_alerts_per_day": 11531.5
+   }
+  ]
+ },
+ "test_at_line": {
+  "by_day": [
+   {
+    "day": 6,
+    "part": "tuning",
+    "transfers": 482751,
+    "expected_from_probabilities": 340.23635262875973,
+    "alerts": 966,
+    "found": 330,
+    "laundering": 497,
+    "precision": 0.3416149068322981,
+    "precision_low": 0.31238829063750645,
+    "precision_high": 0.37209622258079994,
+    "recall": 0.6639839034205232,
+    "queue_found": 331,
+    "queue_precision": 0.331
+   },
+   {
+    "day": 7,
+    "part": "tuning",
+    "transfers": 482773,
+    "expected_from_probabilities": 359.1431022978651,
+    "alerts": 1034,
+    "found": 366,
+    "laundering": 539,
+    "precision": 0.3539651837524178,
+    "precision_low": 0.3254075399560136,
+    "precision_high": 0.38360389197740524,
+    "recall": 0.6790352504638218,
+    "queue_found": 365,
+    "queue_precision": 0.365
+   },
+   {
+    "day": 8,
+    "part": "test",
+    "transfers": 654467,
+    "expected_from_probabilities": 493.3236061865754,
+    "alerts": 2409,
+    "found": 303,
+    "laundering": 514,
+    "precision": 0.12577833125778332,
+    "precision_low": 0.11312957403651662,
+    "precision_high": 0.13961867705000375,
+    "recall": 0.5894941634241245,
+    "queue_found": 277,
+    "queue_precision": 0.277
+   },
+   {
+    "day": 9,
+    "part": "test",
+    "transfers": 208325,
+    "expected_from_probabilities": 304.3898712676605,
+    "alerts": 1019,
+    "found": 307,
+    "laundering": 442,
+    "precision": 0.3012757605495584,
+    "precision_low": 0.27389455603919305,
+    "precision_high": 0.3301496519038862,
+    "recall": 0.6945701357466063,
+    "queue_found": 305,
+    "queue_precision": 0.305
+   }
+  ],
+  "both_test_days": {
+   "alerts": 3428,
+   "found": 610,
+   "laundering": 956,
+   "precision": 0.1779463243873979,
+   "precision_low": 0.1655055978075385,
+   "precision_high": 0.19110803762544595,
+   "recall": 0.6380753138075314,
+   "recall_low": 0.590398685515873,
+   "recall_high": 0.681286828713004,
+   "f1": 0.2782846715328467,
+   "expected_from_probabilities": 797.713477454236
+  },
+  "both_test_days_as_a_daily_queue": {
+   "alerts": 2000,
+   "found": 582,
+   "laundering": 956,
+   "precision": 0.291,
+   "precision_low": 0.2715088601794763,
+   "precision_high": 0.31129246559670465,
+   "recall": 0.608786610878661,
+   "recall_low": 0.5578664682539682,
+   "recall_high": 0.6546072667206119,
+   "f1": 0.39377537212449254,
+   "alerts_to_review_for_precision_within_3_points": 881
+  }
+ },
+ "below_the_line": {
+  "bands": [
+   {
+    "band": "Just below: up to 5,000 a day",
+    "tuning_transfers": 8000,
+    "tuning_laundering": 173,
+    "test_transfers": 21881,
+    "test_laundering": 215
+   },
+   {
+    "band": "Middle: up to 50,000 a day",
+    "tuning_transfers": 90000,
+    "tuning_laundering": 130,
+    "test_transfers": 87813,
+    "test_laundering": 73
+   },
+   {
+    "band": "Far below: the rest",
+    "tuning_transfers": 865524,
+    "tuning_laundering": 37,
+    "test_transfers": 749670,
+    "test_laundering": 58
+   }
+  ],
+  "truth_on_test_days": {
+   "transfers_below": 859364,
+   "laundering_below": 346,
+   "one_in": 2483.7109826589594
+  },
+  "main_sample": 3000,
+  "repeats": 5000,
+  "designs": {
+   "Simple random sample below the line": {
+    "reviews": 3000,
+    "per_band": [
+     3000
+    ],
+    "mean_estimate": 352.9694402666666,
+    "rmse": 312.914863374805,
+    "coverage": 0.9676,
+    "median_low": 32.386580883638885,
+    "median_high": 1345.3043763845767,
+    "share_with_no_laundering_in_sample": 0.2886,
+    "mean_laundering_in_sample": 1.2322
+   },
+   "By score band, in proportion to band size": {
+    "reviews": 3000,
+    "per_band": [
+     76,
+     307,
+     2617
+    ],
+    "mean_estimate": 348.11264780175986,
+    "rmse": 312.87571763996624,
+    "coverage": 0.8758,
+    "median_low": 121.95332390667906,
+    "median_high": 1820.125196996556,
+    "share_with_no_laundering_in_sample": 0.291,
+    "mean_laundering_in_sample": 1.2118
+   },
+   "By score band, planned on the tuning days": {
+    "reviews": 3000,
+    "per_band": [
+     407,
+     1001,
+     1592
+    ],
+    "mean_estimate": 349.1613198109781,
+    "rmse": 213.14393388279703,
+    "coverage": 0.9116,
+    "median_low": 186.55530675507637,
+    "median_high": 1588.0159132534031,
+    "share_with_no_laundering_in_sample": 0.0064,
+    "mean_laundering_in_sample": 4.9946
+   }
+  },
+  "by_sample_size": [
+   {
+    "reviews": 1000,
+    "per_band": [
+     179,
+     333,
+     488
+    ],
+    "mean_estimate": 345.432479209189,
+    "rmse": 366.9689727589142,
+    "coverage": 0.858,
+    "median_low": 178.66745697815497,
+    "median_high": 4335.314288390275,
+    "share_with_no_laundering_in_sample": 0.1176,
+    "mean_laundering_in_sample": 2.0662
+   },
+   {
+    "reviews": 3000,
+    "per_band": [
+     407,
+     1001,
+     1592
+    ],
+    "mean_estimate": 349.1613198109781,
+    "rmse": 213.14393388279703,
+    "coverage": 0.9116,
+    "median_low": 186.55530675507637,
+    "median_high": 1588.0159132534031,
+    "share_with_no_laundering_in_sample": 0.0064,
+    "mean_laundering_in_sample": 4.9946
+   },
+   {
+    "reviews": 10000,
+    "per_band": [
+     1202,
+     3338,
+     5460
+    ],
+    "mean_estimate": 345.1234983292155,
+    "rmse": 115.68917573252173,
+    "coverage": 0.9484,
+    "median_low": 217.9879097387177,
+    "median_high": 744.9908333899702,
+    "share_with_no_laundering_in_sample": 0.0,
+    "mean_laundering_in_sample": 14.9586
+   },
+   {
+    "reviews": 30000,
+    "per_band": [
+     3475,
+     10013,
+     16512
+    ],
+    "mean_estimate": 347.45029209256626,
+    "rmse": 65.7052510503869,
+    "coverage": 0.9596,
+    "median_low": 255.4627786156168,
+    "median_high": 541.1418951560106,
+    "share_with_no_laundering_in_sample": 0.0,
+    "mean_laundering_in_sample": 43.8994
+   }
+  ],
+  "one_sample": {
+   "reviews_per_band": [
+    407,
+    1001,
+    1592
+   ],
+   "laundering_in_sample_per_band": [
+    0,
+    1,
+    0
+   ],
+   "estimated_misses": 87.72527472527473,
+   "low": 48.44093341390226,
+   "high": 1343.6898470001092,
+   "share_found_estimate": 0.8742696045233332,
+   "share_found_low": 0.3122297026504258,
+   "share_found_high": 0.9264308596934513,
+   "share_found_truth": 0.6380753138075314
+  }
+ },
+ "champion_challenger": {
+  "on_test_days": [
+   {
+    "comparison": "Peer-group rule against the adopted model",
+    "a": "rule",
+    "b": "behavior",
+    "found_a": 215,
+    "found_b": 582,
+    "both": 192,
+    "only_a": 23,
+    "only_b": 390,
+    "laundering": 956,
+    "schemes": 545,
+    "gain": 0.38389121338912136,
+    "gain_low": 0.32576422226619045,
+    "gain_high": 0.43858179171873957,
+    "mcnemar_p": 3.0565954535279527e-87
+   },
+   {
+    "comparison": "Logistic regression against the adopted model",
+    "a": "linear",
+    "b": "behavior",
+    "found_a": 514,
+    "found_b": 582,
+    "both": 473,
+    "only_a": 41,
+    "only_b": 109,
+    "laundering": 956,
+    "schemes": 545,
+    "gain": 0.07112970711297072,
+    "gain_low": 0.041052541559143015,
+    "gain_high": 0.10042898193760263,
+    "mcnemar_p": 2.613846398298242e-08
+   },
+   {
+    "comparison": "Adopted model against the network model that was not adopted",
+    "a": "behavior",
+    "b": "network",
+    "found_a": 582,
+    "found_b": 592,
+    "both": 560,
+    "only_a": 22,
+    "only_b": 32,
+    "laundering": 956,
+    "schemes": 545,
+    "gain": 0.010460251046025104,
+    "gain_low": -0.004166884133611691,
+    "gain_high": 0.025726047009114836,
+    "mcnemar_p": 0.22032849417661093
+   }
+  ],
+  "live_split_test": {
+   "champion_precision": 0.2995,
+   "challenger_precision": 0.348,
+   "alerts_per_arm": 1460,
+   "days_at_half_the_budget_per_arm": 3.0,
+   "smallest_gap_seen_with_one_week": 0.03149999999999998
+  }
+ }
+}

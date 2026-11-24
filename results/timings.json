@@ -1,0 +1,43 @@
+{
+ "02_features_hi": {
+  "seconds": 71,
+  "transfers": 5078345
+ },
+ "02_features_li": {
+  "seconds": 101,
+  "transfers": 6924049
+ },
+ "03_models": {
+  "seconds": 700,
+  "boosted_models": {
+   "transfer": {
+    "seconds_to_fit": 23,
+    "transfers_scored_a_second": 1076246
+   },
+   "customer": {
+    "seconds_to_fit": 87,
+    "transfers_scored_a_second": 284595
+   },
+   "behavior": {
+    "seconds_to_fit": 55,
+    "transfers_scored_a_second": 648494
+   },
+   "network": {
+    "seconds_to_fit": 59,
+    "transfers_scored_a_second": 718179
+   }
+  }
+ },
+ "04_alert_line": {
+  "seconds": 9
+ },
+ "05_monitor": {
+  "seconds": 330
+ },
+ "06_published_protocol": {
+  "seconds": 3039
+ },
+ "07_report": {
+  "seconds": 18
+ }
+}
